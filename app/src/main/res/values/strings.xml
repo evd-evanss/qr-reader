@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">QR Reader</string>
+
+
+    <!-- PIX LOADING-->
+    <string name="validate_generic_loading_title">Aguarde!</string>
+    <string name="validate_pix_loading_body">Estamos criando seu Qr Code Estático</string>
+    <string name="validate_agency_account_loading_body">Estamos validando a informação.</string>
+    <string name="qr_code_view_title">Ler QR Code</string>
+    <string name="reader_title_name">Nome:</string>
+    <string name="reader_title_value">Valor:</string>
+    <string name="share">Compartilhar</string>
+    <string name="menu_title_settings">Configurações</string>
+    <string name="menu_title_read">Ler</string>
+    <string name="menu_title_help">Ajuda</string>
+    <string name="menu_title_create">Criar</string>
+    <string name="create_card">Criar cartão virtual</string>
+
+    <!-- Create Pix -->
+    <string name="create_title_name">Nome:</string>
+    <string name="create_email_hint">E-mail:</string>
+    <string name="create_title_key">Chave pix:</string>
+    <string name="create_title_site">Site:</string>
+    <string name="create_checkbox_frequency">Utilizar mais de uma vez</string>
+    <string name="create_title_company">Nome da empresa:</string>
+    <string name="reader_activity_button">Visitar Site</string>
+    <string name="generic_dialog_title">Alerta de Segurança</string>
+    <string name="generic_dialog_body">Você está prestes a abrir um link externo, o QR Reader não tem nenhuma relação com qualquer site externo, se está certo de que quer prosseguir clique em continuar.</string>
+    <string name="action_cancel">Cancelar</string>
+    <string name="action_continue">Continuar</string>
+    <string name="create_button_generate">Gerar cartão de visita</string>
+    <string name="create_title_address">Endereço</string>
+    <string name="create_title_phone">Telefone</string>
+    <string name="menu_title_my_cards">Meus Cartões</string>
+</resources>

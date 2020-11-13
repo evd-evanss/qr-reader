@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">@color/color_orange_light</color>
+    <color name="green_mid">@color/color_green_mid</color>
+    <color name="green_dark">@color/color_green_dark</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+
+    <color name="colorAccent">@color/color_green_dark</color>
+
+    <!--PRIMARY-->
+    <color name="color_blue_dark">#3873b9</color>
+    <color name="color_blue_mid">#0091ce</color>
+    <color name="color_blue_light">#04afdc</color>
+
+
+    <!--SECONDARY-->
+    <color name="color_purple_dark">#784B91</color>
+    <color name="color_purple_mid">#AA4B91</color>
+    <color name="color_purple_light">#C873AA</color>
+    <color name="color_pink_dark">#E63214</color>
+    <color name="color_pink_mid">#E15069</color>
+    <color name="color_pink_light">#E66E8C</color>
+    <color name="color_orange_dark">#E66423</color>
+    <color name="color_orange_mid">#F08732</color>
+    <color name="color_orange_light">#FAAA32</color>
+    <color name="color_green_dark">#00A05F</color>
+    <color name="color_green_mid">#82BE4B</color>
+    <color name="color_green_light">#AFCD46</color>
+
+    <!--SECONDARY DARK-->
+    <color name="color_white">#FFF</color>
+    <color name="color_black">#0A0A0A</color>
+    <color name="color_black_alpha">#ab0a0a0a</color>
+    <color name="color_gray_light_bg">#F9F9F9</color>
+    <color name="color_gray_light">#EFEFEF</color>
+    <color name="color_gray_mid">#B4B4B4</color>
+    <color name="text_gray_light">#B7B7B7</color>
+    <color name="color_gray_dark">#505050</color>
+    <color name="color_gray_light_divisor">#D8D8D8</color>
+    <color name="color_allports_dark">#1E193C</color>
+    <color name="color_allports_mid">#0A5A78</color>
+    <color name="color_allports_light">#007396</color>
+
+    <!--ALERTS-->
+    <color name="color_orange_alert">#E66432</color>
+    <color name="color_yellow_alert">#FFD700</color>
+    <color name="color_red_alert">#E63214</color>
+
+    <!--APP-->
+    <color name="background">#F7F7F7</color>
+    <color name="background_bottom_navigation">@color/colorPeacefulBlue</color>
+    <color name="button_confirm">@color/color_green_dark</color>
+    <color name="button_next">@color/color_blue_dark</color>
+    <color name="button_single_action">@color/color_blue_dark</color>
+    <color name="value_default">@color/color_blue_light</color>
+    <color name="cash_in">@color/color_green_dark</color>
+    <color name="cash_out">@color/color_red_alert</color>
+
+    <color name="menu_tab_inactive">#4cffffff</color>
+    <color name="red_text">#bd3434</color>
+    <color name="menu_tab_active">@color/color_white</color>
+    <color name="bg_camera_selfie">#fb3873b9</color>
+    <color name="bg_camera_take_picture">#356299</color>
+    <color name="bg_camera_doc">#8f000000</color>
+    <color name="search_text_highlight">#B2D7FF</color>
+    <color name="hint_color_gray">#A8A8A8</color>
+    <color name="color_transparent">#00000000</color>
+    <color name="color_gray_almost_white">#f5f5f5</color>
+    <color name="color_blue_pinpad">#144887</color>
+    <color name="disabled_button">#B7B7B7</color>
+    <color name="loading_background">#FFFFFF</color>
+
+    <!--DESIGN SYSTEM-->
+    <color name="success">@color/colorGossamer</color>
+    <color name="error">@color/colorWellRead</color>
+
+    <!--These colors are being used directly in code.
+    It might look wrong due to these colors are named as the color itself,
+    but it is this way due to the way the design system for this project has been built-->
+    <color name="red">@color/colorWellRead</color>
+    <color name="green">@color/colorGossamer</color>
+    <color name="yellow">#FBF82D</color>
+    <color name="orange">@color/colorHotCinnamon</color>
+    <color name="purple">@color/colorAffairapprox</color>
+    <color name="white">@color/colorWhite</color>
+    <color name="lightGray">@color/colorAlabaster</color>
+    <color name="mediumGray">@color/colorConcrete</color>
+    <color name="gray">@color/colorSilverChalice</color>
+    <color name="dark">@color/colorEmperor</color>
+
+    <color name="notification">@color/colorWhite</color>
+
+    <color name="icon">@color/colorDoveGray</color>
+    <color name="iconDark">@color/colorAlabaster</color>
+
+    <color name="windowBackground">@color/colorWhite</color>
+    <color name="windowBackgroundDark">@color/colorMineShaft</color>
+
+    <color name="divider">@color/colorAlabaster</color>
+    <color name="dividerDark">@color/colorDoveGray</color>
+
+    <color name="text">@color/colorDoveGray</color>
+    <color name="textDark">@color/colorAlabaster</color>
+
+    <color name="editTextHint">@color/colorMineShaft</color>
+    <color name="editTextLine">@color/colorSilverChalice</color>
+    <color name="editTextLineEditing">@color/colorMineShaft</color>
+
+    <color name="editTextHintDark">@color/colorAlabaster</color>
+    <color name="editTextLineDark">@color/colorDoveGray</color>
+    <color name="editTextLineEditingDark">@color/colorAlabaster</color>
+
+    <color name="buttonPrimaryText">@color/colorAlabaster</color>
+    <color name="buttonPrimaryBackground">@color/colorPrimary</color>
+    <color name="buttonPrimaryStroke">@color/colorTransparent</color>
+    <color name="buttonPrimaryClick">@color/colorDoveGray</color>
+
+    <color name="buttonPrimaryTextDark">@color/colorMineShaft</color>
+    <color name="buttonPrimaryBackgroundDark">@color/colorAlabaster</color>
+    <color name="buttonPrimaryStrokeDark">@color/colorTransparent</color>
+    <color name="buttonPrimaryClickDark">@color/colorSilverChalice</color>
+
+    <color name="buttonSecondaryText">@color/colorPrimary</color>
+    <color name="buttonSecondaryBackground">@color/colorWhite</color>
+    <color name="buttonSecondaryStroke">@color/colorPrimary</color>
+    <color name="buttonSecondaryClick">@color/colorSilverChalice</color>
+
+    <color name="buttonSecondaryTextDark">@color/colorAlabaster</color>
+    <color name="buttonSecondaryBackgroundDark">@color/colorTransparent</color>
+    <color name="buttonSecondaryStrokeDark">@color/colorAlabaster</color>
+    <color name="buttonSecondaryClickDark">@color/colorDoveGray</color>
+
+    <!--These colors should never be used outside of colors.xml and styles.xml-->
+    <!--Use this website to name colors: http://chir.ag/projects/name-that-color/#FFFFFF-->
+    <color name="colorSecondary">@color/colorCerulean</color>
+    <color name="colorPrimary">@color/colorBostonBlue</color>
+    <color name="colorPrimaryDark">@color/color_blue_dark</color>
+    <color name="colorWhite">#FEFEFE</color>
+    <color name="colorAlabaster">#F9F9F9</color>
+    <color name="colorConcrete">#F2F2F2</color>
+    <color name="colorSilverChalice">#9E9E9E</color>
+    <color name="colorDoveGray">#636363</color>
+    <color name="colorMineShaft">#353535</color>
+    <color name="colorEmperor">#505050</color>
+    <color name="colorBlack">#000</color>
+    <color name="colorGossamer">#0CA466</color>
+    <color name="colorWellRead">#BD3434</color>
+    <color name="colorCerulean">#00AFDA</color>
+    <color name="colorLochmara">#0279BF</color>
+    <color name="colorPeacefulBlue">#0091CE</color>
+    <color name="colorBostonBlue">#3873B8</color>
+    <color name="colorOrient">#005485</color>
+    <color name="colorAstronautBlue">#003A5C</color>
+    <color name="colorTransparent">#00000000</color>
+    <color name="colorTransparentBlur">#FF000000</color>
+    <color name="colorSeaBuckthornt">#FAAA32</color>
+    <color name="colorHotCinnamon">#E66423</color>
+    <color name="colorAffairapprox">#784B91</color>
+    <color name="bg_qr_codex">#4E5567</color>
+</resources>

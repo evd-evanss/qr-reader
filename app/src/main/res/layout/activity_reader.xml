@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/layout_toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/readerContentIv"
+        android:layout_width="@dimen/qr_code_size"
+        android:layout_height="@dimen/qr_code_size"
+        android:background="@color/colorTransparentBlur"
+        android:layout_marginTop="@dimen/vertical_margin_large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include" />
+
+    <TextView
+        android:id="@+id/qrCodeTextTv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/vertical_margin_large"
+        android:textAlignment="center"
+        android:textSize="@dimen/textMedium"
+        android:fontFamily="@font/google_sans"
+        android:textColor="@color/color_blue_light"
+        app:layout_constraintEnd_toEndOf="@+id/readerContentIv"
+        app:layout_constraintStart_toStartOf="@+id/readerContentIv"
+        app:layout_constraintTop_toBottomOf="@+id/readerContentIv"
+        tools:text="www.google.com" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/visitWebsiteBt"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/buttonSize"
+        android:layout_marginTop="@dimen/vertical_margin"
+        android:fontFamily="@font/google_sans"
+        android:text="@string/reader_activity_button"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/qrCodeTextTv"
+        app:layout_constraintStart_toStartOf="@+id/qrCodeTextTv"
+        app:layout_constraintTop_toBottomOf="@+id/qrCodeTextTv" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

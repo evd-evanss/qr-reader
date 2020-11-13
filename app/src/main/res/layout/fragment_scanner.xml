@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/colorTransparentBlur"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.journeyapps.barcodescanner.BarcodeView
+            android:id="@+id/scannerBarcodeCameraX"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <include
+            layout="@layout/layout_toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/scannerTarget"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginStart="@dimen/horizontal_margin_extra_large"
+            android:layout_marginEnd="@dimen/horizontal_margin_extra_large"
+            android:background="@drawable/bg_focus_rounded"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <com.sugarspoon.qrreader.widgets.ScanLoadingView
+            android:id="@+id/scannerLoadingPb"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/scannerTarget"
+            app:layout_constraintEnd_toEndOf="@+id/scannerTarget"
+            app:layout_constraintStart_toStartOf="@+id/scannerTarget"
+            app:layout_constraintTop_toTopOf="@+id/scannerTarget" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_focus"
+            android:layout_margin="@dimen/horizontal_margin"
+            app:layout_constraintStart_toStartOf="@+id/scannerTarget"
+            app:layout_constraintTop_toTopOf="@+id/scannerTarget" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/horizontal_margin"
+            android:rotation="90"
+            android:src="@drawable/ic_focus"
+            app:layout_constraintEnd_toEndOf="@+id/scannerTarget"
+            app:layout_constraintTop_toTopOf="@+id/scannerTarget" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/horizontal_margin"
+            android:rotation="180"
+            android:src="@drawable/ic_focus"
+            app:layout_constraintBottom_toBottomOf="@+id/scannerTarget"
+            app:layout_constraintEnd_toEndOf="@+id/scannerTarget" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/horizontal_margin"
+            android:rotation="270"
+            android:src="@drawable/ic_focus"
+            app:layout_constraintBottom_toBottomOf="@+id/scannerTarget"
+            app:layout_constraintStart_toStartOf="@+id/scannerTarget" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

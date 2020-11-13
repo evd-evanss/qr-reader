@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pix_reader_flow.xml"
+    app:startDestination="@id/scannerFragment">
+
+    <fragment
+        android:id="@+id/scannerFragment"
+        tools:layout="@layout/fragment_scanner"
+        android:name="com.sugarspoon.qrreader.ui.qrcode.scanner.ScannerFragment"
+        android:label="ScannerFragment" >
+        <action
+            android:id="@+id/action_scannerFragment_to_createFragment"
+            app:destination="@id/createFragment" />
+        <action
+            android:id="@+id/action_scannerFragment_to_listFragment2"
+            app:destination="@id/listFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createFragment"
+        tools:layout="@layout/fragment_create"
+        android:name="com.sugarspoon.qrreader.ui.qrcode.create.CreateFragment"
+        android:label="CreateFragment" >
+
+    </fragment>
+    <fragment
+        android:id="@+id/listFragment"
+        tools:layout="@layout/fragment_my_cards"
+        android:name="com.sugarspoon.qrreader.ui.qrcode.list.ListFragment"
+        android:label="ListFragment" >
+    </fragment>
+
+</navigation>
