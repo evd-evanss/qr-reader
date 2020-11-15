@@ -12,7 +12,7 @@ interface VirtualCardDao {
     @Query("SELECT * FROM virtual_cards_table")
     fun getAll(): Flow<List<VirtualCardEntity>>
 
-    @Query("SELECT * FROM virtual_cards_table WHERE uid IN (:userIds)")
+    @Query("SELECT * FROM virtual_cards_table WHERE id IN (:userIds)")
     fun loadAllByIds(userIds: IntArray): Flow<List<VirtualCardEntity>>
 
     @Insert
@@ -20,5 +20,8 @@ interface VirtualCardDao {
 
     @Delete
     fun delete(card: VirtualCardEntity)
+
+    @Query("SELECT * FROM virtual_cards_table WHERE id = :id")
+    fun getVirtualCardById(id: Int): VirtualCardEntity
 }
 

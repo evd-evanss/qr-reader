@@ -2,11 +2,11 @@
     <string name="app_name">QR Reader</string>
 
 
-    <!-- PIX LOADING-->
+    <!-- LOADING-->
     <string name="validate_generic_loading_title">Aguarde!</string>
-    <string name="validate_pix_loading_body">Estamos criando seu Qr Code Estático</string>
+    <string name="validate_virtual_card_loading_body">Estamos criando seu Cartão Virtual</string>
     <string name="validate_agency_account_loading_body">Estamos validando a informação.</string>
-    <string name="qr_code_view_title">Ler QR Code</string>
+    <string name="loading_my_cards_body">Estamos carregando seus cartões.</string>
     <string name="reader_title_name">Nome:</string>
     <string name="reader_title_value">Valor:</string>
     <string name="share">Compartilhar</string>
@@ -14,13 +14,18 @@
     <string name="menu_title_read">Ler</string>
     <string name="menu_title_help">Ajuda</string>
     <string name="menu_title_create">Criar</string>
-    <string name="create_card">Criar cartão virtual</string>
+
+    <string name="qr_code_view_title">Ler QR Code</string>
+    <string name="create_card">Criar cartão de visita</string>
+    <string name="my_cards">Meus cartões de visita</string>
+    <string name="my_codes">Meus Códigos</string>
+    <string name="help">Ajuda</string>
 
     <!-- Create Pix -->
     <string name="create_title_name">Nome:</string>
     <string name="create_email_hint">E-mail:</string>
     <string name="create_title_key">Chave pix:</string>
-    <string name="create_title_site">Site:</string>
+    <string name="create_title_site">Site/Linkedin/Instagram:</string>
     <string name="create_checkbox_frequency">Utilizar mais de uma vez</string>
     <string name="create_title_company">Nome da empresa:</string>
     <string name="reader_activity_button">Visitar Site</string>
@@ -32,4 +37,7 @@
     <string name="create_title_address">Endereço</string>
     <string name="create_title_phone">Telefone</string>
     <string name="menu_title_my_cards">Meus Cartões</string>
+    <string name="action_share_via">Compartilhar através de</string>
+    <string name="barcode_empty_title">Ops!</string>
+    <string name="barcode_empty_body">Você ainda não leu nenhum Qr Code</string>
 </resources>

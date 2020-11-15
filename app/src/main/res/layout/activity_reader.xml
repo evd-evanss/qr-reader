@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <include
-        android:id="@+id/include"
+        android:id="@+id/include2"
         layout="@layout/layout_toolbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -16,11 +16,11 @@
         android:id="@+id/readerContentIv"
         android:layout_width="@dimen/qr_code_size"
         android:layout_height="@dimen/qr_code_size"
+        android:layout_marginTop="@dimen/vertical_margin"
         android:background="@color/colorTransparentBlur"
-        android:layout_marginTop="@dimen/vertical_margin_large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include" />
+        app:layout_constraintTop_toBottomOf="@+id/include2" />
 
     <TextView
         android:id="@+id/qrCodeTextTv"

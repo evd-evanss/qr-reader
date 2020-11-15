@@ -23,12 +23,14 @@
         android:id="@+id/bottomAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
         app:titleTextColor="@color/white"
         app:backgroundTint="@color/green_mid"
         app:fabCradleMargin="10dp"
-        app:fabAlignmentMode="end"
         app:menu="@menu/menu"
+        android:layout_gravity="bottom"
+        app:fabAlignmentMode="end"
+        app:hideOnScroll="true"
+        app:layout_scrollFlags="scroll|enterAlways"
         app:fabCradleRoundedCornerRadius="16dp"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

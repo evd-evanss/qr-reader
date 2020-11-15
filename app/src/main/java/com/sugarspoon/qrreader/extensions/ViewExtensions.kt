@@ -44,7 +44,8 @@ fun View.setVisible(visible: Boolean, useInvisible: Boolean = false) {
     }
 }
 
-fun androidx.recyclerview.widget.RecyclerView.setup(adapter: androidx.recyclerview.widget.RecyclerView.Adapter<in androidx.recyclerview.widget.RecyclerView.ViewHolder>,
+fun androidx.recyclerview.widget.RecyclerView.setup(
+    adapter: androidx.recyclerview.widget.RecyclerView.Adapter<in androidx.recyclerview.widget.RecyclerView.ViewHolder>,
                                                     layoutManager: androidx.recyclerview.widget.RecyclerView.LayoutManager? = androidx.recyclerview.widget.LinearLayoutManager(this.context),
                                                     decoration: androidx.recyclerview.widget.RecyclerView.ItemDecoration? = null,
                                                     hasFixedSize: Boolean = true) {
@@ -54,6 +55,7 @@ fun androidx.recyclerview.widget.RecyclerView.setup(adapter: androidx.recyclervi
     this.setHasFixedSize(hasFixedSize)
     decoration?.let { this.addItemDecoration(it) }
 }
+
 
 //SNACK
 

@@ -2,6 +2,8 @@ package com.sugarspoon.qrreader.base
 
 import android.view.MenuItem
 import com.sugarspoon.qrreader.extensions.showToast
+import com.sugarspoon.qrreader.utils.ToolbarOptions
+import kotlinx.android.synthetic.main.layout_toolbar.*
 import kotlinx.android.synthetic.main.layout_toolbar.view.*
 
 abstract class BaseFragment : androidx.fragment.app.Fragment() {
@@ -20,6 +22,22 @@ abstract class BaseFragment : androidx.fragment.app.Fragment() {
         view?.run {
             titleTv.text = title
         }
+    }
+
+    fun setToolbar(options: ToolbarOptions, displayHomeAsUpEnabled: Boolean = false) = view?.run {
+        (activity as BaseActivity).supportActionBar?.setDisplayHomeAsUpEnabled(displayHomeAsUpEnabled)
+        when(options) {
+            is ToolbarOptions.Home -> bindToolbarContent(options.icon, options.title)
+            is ToolbarOptions.QrList -> bindToolbarContent(options.icon, options.title)
+            is ToolbarOptions.CreateCard  -> bindToolbarContent(options.icon, options.title)
+            is ToolbarOptions.ListCards  -> bindToolbarContent(options.icon, options.title)
+            is ToolbarOptions.Help -> bindToolbarContent(options.icon, options.title)
+        }
+    }
+
+    private fun bindToolbarContent(icon: Int, title: Int, ) {
+        titleTv.text = getString(title)
+        toolbarIconIv.setImageResource(icon)
     }
 
     fun setOrientationLandscape() {

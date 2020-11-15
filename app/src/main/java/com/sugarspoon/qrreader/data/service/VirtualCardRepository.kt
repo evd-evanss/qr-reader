@@ -1,25 +1,29 @@
 package com.sugarspoon.qrreader.data.service
 
-import androidx.annotation.WorkerThread
 import com.sugarspoon.qrreader.data.dao.VirtualCardDao
 import com.sugarspoon.qrreader.data.entity.VirtualCardEntity
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.launch
 
 class VirtualCardRepository(private val virtualCardDao: VirtualCardDao) {
 
     val allCards: Flow<List<VirtualCardEntity>> = virtualCardDao.getAll()
 
-    // By default Room runs suspend queries off the main thread, therefore, we don't need to
-    // implement anything else to ensure we're not doing long running database work
-    // off the main thread.
-    @Suppress("RedundantSuspendModifier")
-    @WorkerThread
-    suspend fun insert(card: VirtualCardEntity) {
-        virtualCardDao.insertAll(card)
+    fun getVirtualCardById(id: Int): VirtualCardEntity {
+        return virtualCardDao.getVirtualCardById(id)
     }
-    @Suppress("RedundantSuspendModifier")
-    @WorkerThread
+
+    fun insert(card: VirtualCardEntity) {
+        CoroutineScope(IO).launch {
+            virtualCardDao.insertAll(card)
+        }
+    }
+
     suspend fun delete(card: VirtualCardEntity) {
-        virtualCardDao.delete(card)
+        CoroutineScope(IO).launch {
+            virtualCardDao.delete(card)
+        }
     }
 }

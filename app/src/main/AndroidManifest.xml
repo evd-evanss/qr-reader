@@ -4,16 +4,18 @@
     package="com.sugarspoon.qrreader">
 
     <uses-permission android:name="Android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".base.App"
+        android:name=".app.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PixReader">
-        <activity android:name="com.sugarspoon.qrreader.ui.qrcode.main.MainActivity">
+        <activity android:name="com.sugarspoon.qrreader.ui.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,10 +26,10 @@
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="fullSensor"
             tools:replace="screenOrientation" />
-        <activity android:name=".ui.qrcode.card.VirtualCardFragment">
+        <activity android:name=".ui.features.card.VirtualCardActivity">
 
         </activity>
-        <activity android:name="com.sugarspoon.qrreader.ui.qrcode.reader.ReaderActivity" />
+        <activity android:name="com.sugarspoon.qrreader.ui.features.barcode_preview.BarcodePreviewActivity" />
     </application>
 
 </manifest>

@@ -20,10 +20,11 @@ class LoadingView : FrameLayout {
         LayoutInflater.from(context).inflate(R.layout.validate_view, this, true)
     }
 
-    fun setView(intent: LoadingIntent) {
+    fun setView(intent: LoadingIntent = LoadingIntent.CreateVirtualCard()) {
         intent.run {
             when(this) {
-                is LoadingIntent.CreatePixIntent -> setView(this.title, this.body)
+                is LoadingIntent.CreateVirtualCard -> setView(this.title, this.body)
+                is LoadingIntent.VirtualCardList -> setView(this.title, this.body)
             }
         }
     }
@@ -46,9 +47,13 @@ class LoadingView : FrameLayout {
     }
 
     sealed class LoadingIntent {
-        class CreatePixIntent(
+        class CreateVirtualCard(
             val title: Int = R.string.validate_generic_loading_title,
-            val body: Int = R.string.validate_pix_loading_body
+            val body: Int = R.string.validate_virtual_card_loading_body
+        ): LoadingIntent()
+        class VirtualCardList(
+            val title: Int = R.string.validate_generic_loading_title,
+            val body: Int = R.string.validate_virtual_card_loading_body
         ): LoadingIntent()
     }
 }

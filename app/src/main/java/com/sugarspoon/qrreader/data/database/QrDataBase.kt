@@ -5,23 +5,25 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.sugarspoon.qrreader.data.dao.BarcodeDao
 import com.sugarspoon.qrreader.data.dao.VirtualCardDao
+import com.sugarspoon.qrreader.data.entity.BarcodeEntity
 import com.sugarspoon.qrreader.data.entity.VirtualCardEntity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-@Database(entities = arrayOf(VirtualCardEntity::class), version = 1, exportSchema = false)
+@Database(entities = [VirtualCardEntity::class, BarcodeEntity::class], version = 2, exportSchema = false)
 abstract class QrDataBase : RoomDatabase() {
 
     abstract fun virtualCardDao(): VirtualCardDao
+    abstract fun barcodeDao(): BarcodeDao
 
     companion object {
         @Volatile
         private var INSTANCE: QrDataBase? = null
 
         fun getDatabase(
-            context: Context,
-            scope: CoroutineScope
+            context: Context
         ): QrDataBase {
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
@@ -34,7 +36,7 @@ abstract class QrDataBase : RoomDatabase() {
             }
         }
 
-        private class WordDatabaseCallback(
+        private class BarcodeDatabaseCallback(
             private val scope: CoroutineScope
         ) : RoomDatabase.Callback() {
 
@@ -43,12 +45,11 @@ abstract class QrDataBase : RoomDatabase() {
                 INSTANCE?.let { database ->
                     scope.launch {
                         var dao = database.virtualCardDao()
-                        populateDatabase(database.virtualCardDao())
                     }
                 }
             }
 
-            suspend fun populateDatabase(wordDao: VirtualCardDao) {
+            suspend fun insertVirtualCard(virtualCardDao: VirtualCardDao) {
             }
         }
     }
