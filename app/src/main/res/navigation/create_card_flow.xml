@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/create_card_flow"
+    app:startDestination="@id/registerNameFragment">
+
+    <fragment
+        android:id="@+id/registerNameFragment"
+        tools:layout="@layout/fragment_name"
+        android:name="com.sugarspoon.qrreader.ui.features.create_card.name.RegisterNameFragment"
+        android:label="RegisterNameFragment" >
+        <action
+            android:id="@+id/action_registerNameFragment_to_registerEmailFragment"
+            app:destination="@id/registerEmailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerEmailFragment"
+        tools:layout="@layout/fragment_email"
+        android:name="com.sugarspoon.qrreader.ui.features.create_card.email.RegisterEmailFragment"
+        android:label="RegisterEmailFragment" >
+        <action
+            android:id="@+id/action_registerEmailFragment_to_registerAddressFragment"
+            app:destination="@id/registerAddressFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerAddressFragment"
+        tools:layout="@layout/fragment_address"
+        android:name="com.sugarspoon.qrreader.ui.features.create_card.address.RegisterAddressFragment"
+        android:label="RegisterAddressFragment" />
+</navigation>

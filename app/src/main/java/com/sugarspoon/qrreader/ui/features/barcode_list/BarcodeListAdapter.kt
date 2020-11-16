@@ -12,6 +12,9 @@ import kotlinx.android.synthetic.main.item_barcodes.view.*
 class BarcodeListAdapter(private val onItemClicked: Listener) :
     RecyclerView.Adapter<BaseViewHolder<*>>() {
 
+    var onDeleteItem: ((BarcodeEntity) -> Unit)? = null
+    var onOpenBrowser: ((BarcodeEntity) -> Unit)? = null
+
     companion object {
         private const val EMPTY = 0
         private const val FILLED = 1
@@ -19,15 +22,8 @@ class BarcodeListAdapter(private val onItemClicked: Listener) :
 
     var list: MutableList<BarcodeEntity> = mutableListOf()
 
-    var empty: MutableList<Boolean> = mutableListOf()
-
     fun setCardList(cardList: List<BarcodeEntity>) {
         list.addAll(cardList)
-        notifyDataSetChanged()
-    }
-
-    fun setEmptyList(emptyList: List<Boolean>) {
-        empty.addAll(emptyList)
         notifyDataSetChanged()
     }
 
@@ -40,39 +36,21 @@ class BarcodeListAdapter(private val onItemClicked: Listener) :
     }
 
     override fun onBindViewHolder(holder: BaseViewHolder<*>, position: Int) {
-        if (holder is EmptyViewHolder) {
-            holder.bind(empty[position])
-        }
         if (holder is BarcodeViewHolder) {
             holder.bind(list[position])
         }
     }
 
-    override fun getItemViewType(position: Int): Int {
-        position
-        return if (list.isEmpty()) {
-            EMPTY
-        } else {
-            FILLED
-        }
-    }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
-        return when (list.size) {
-            EMPTY -> EmptyViewHolder(
-                LayoutInflater.from(parent.context)
-                    .inflate(R.layout.item_empty_bacode, parent, false)
-            )
-            else -> BarcodeViewHolder(
-                LayoutInflater.from(parent.context)
-                    .inflate(R.layout.item_barcodes, parent, false)
-            )
-        }
+        return BarcodeViewHolder(
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.item_barcodes, parent, false)
+        )
     }
 
     override fun getItemCount() = list.size
 
-    class BarcodeViewHolder(itemView: View) : BaseViewHolder<BarcodeEntity>(itemView) {
+    inner class BarcodeViewHolder(itemView: View) : BaseViewHolder<BarcodeEntity>(itemView) {
         override fun bind(item: BarcodeEntity) {
             itemView.apply {
                 item.run {
@@ -80,12 +58,14 @@ class BarcodeListAdapter(private val onItemClicked: Listener) :
                     itemBarcodeUrlTv.text = item.url
                     itemBarcodeDateTv.text = item.date
                 }
+                itemBarcodeDeleteIv.setOnClickListener {
+                    onDeleteItem?.invoke(item)
+                }
+                itemBarcodeOpenBrowserIv.setOnClickListener {
+                    onOpenBrowser?.invoke(item)
+                }
             }
         }
-    }
-
-    class EmptyViewHolder(itemView: View) : BaseViewHolder<Boolean>(itemView) {
-        override fun bind(item: Boolean) {}
     }
 
     interface Listener {

@@ -42,4 +42,6 @@
 
     <!--ALERT SIZES-->
     <dimen name="generic_dialog_image_size">100dp</dimen>
+    <dimen name="corner_radius_button">15dp</dimen>
+    <dimen name="margin_bottom_fragments">50dp</dimen>
 </resources>

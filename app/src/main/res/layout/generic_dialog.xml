@@ -3,80 +3,92 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:id="@+id/contentDialog"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/genericDialogIv"
-        android:layout_width="@dimen/generic_dialog_image_size"
-        android:layout_height="@dimen/generic_dialog_image_size"
-        android:src="@drawable/ic_info"
-        android:layout_marginTop="@dimen/vertical_margin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/color_orange_alert" />
-
-    <TextView
-        android:id="@+id/genericDialogTitleTv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/google_sans"
-        android:textColor="@color/black"
-        android:textSize="@dimen/text_title"
-        android:textStyle="bold"
-        android:layout_marginTop="@dimen/vertical_margin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/genericDialogIv"
-        tools:text="Título" />
-
-    <TextView
-        android:id="@+id/genericDialogBodyTv"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/horizontal_margin"
-        android:layout_marginEnd="@dimen/horizontal_margin"
-        android:layout_marginTop="@dimen/vertical_margin"
-        android:fontFamily="@font/google_sans"
-        android:textColor="@color/black"
-        android:textSize="@dimen/textMedium"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/genericDialogTitleTv"
-        tools:text="TítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítulo" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/genericDialogCancelBt"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/google_sans"
-        android:backgroundTint="@color/gray"
-        android:layout_marginStart="@dimen/horizontal_margin"
-        android:layout_marginEnd="@dimen/horizontal_margin_thin"
-        android:layout_marginBottom="@dimen/vertical_margin"
-        android:textAllCaps="false"
-        android:textSize="@dimen/textMedium"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/genericDialogConfirmBt"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/genericDialogBodyTv"
-        tools:text="Cancel" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/genericDialogConfirmBt"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/horizontal_margin"
-        android:textAllCaps="false"
-        android:textSize="@dimen/textMedium"
-        android:layout_marginStart="@dimen/horizontal_margin_thin"
-        android:layout_marginBottom="@dimen/vertical_margin"
-        android:fontFamily="@font/google_sans"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/genericDialogCancelBt"
-        app:layout_constraintTop_toBottomOf="@+id/genericDialogBodyTv"
-        tools:text="Confirm" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:id="@+id/genericDialogIv"
+            android:layout_width="@dimen/generic_dialog_image_size"
+            android:layout_height="@dimen/generic_dialog_image_size"
+            android:layout_marginTop="@dimen/vertical_margin"
+            android:src="@drawable/ic_info"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/color_orange_alert" />
+
+        <TextView
+            android:id="@+id/genericDialogTitleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/vertical_margin"
+            android:fontFamily="@font/google_sans"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_title"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/genericDialogIv"
+            tools:text="Título" />
+
+        <TextView
+            android:id="@+id/genericDialogBodyTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/horizontal_margin"
+            android:layout_marginTop="@dimen/vertical_margin"
+            android:layout_marginEnd="@dimen/horizontal_margin"
+            android:fontFamily="@font/google_sans"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textMedium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/genericDialogTitleTv"
+            tools:text="TítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítuloTítulo" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/genericDialogCancelBt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/horizontal_margin"
+            android:layout_marginEnd="@dimen/horizontal_margin_thin"
+            android:layout_marginBottom="@dimen/vertical_margin"
+            android:fontFamily="@font/google_sans"
+            android:textAllCaps="false"
+            android:textSize="@dimen/textMedium"
+            app:cornerRadius="@dimen/corner_radius_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/genericDialogConfirmBt"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/genericDialogBodyTv"
+            tools:text="Cancel" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/genericDialogConfirmBt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/horizontal_margin_thin"
+            android:layout_marginEnd="@dimen/horizontal_margin"
+            android:layout_marginBottom="@dimen/vertical_margin"
+            android:fontFamily="@font/google_sans"
+            android:textAllCaps="false"
+            android:textSize="@dimen/textMedium"
+            android:backgroundTint="@color/red"
+            app:cornerRadius="@dimen/corner_radius_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/genericDialogCancelBt"
+            app:layout_constraintTop_toBottomOf="@+id/genericDialogBodyTv"
+            tools:text="Confirm" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

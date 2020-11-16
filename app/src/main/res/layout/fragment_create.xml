@@ -21,6 +21,7 @@
             android:id="@+id/tableLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_bottom_fragments"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -38,6 +39,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/createCardNameEt"
+                    android:textColorHint="@color/green_mid"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:maxLength="@integer/name_length" />
@@ -91,7 +93,6 @@
                     android:inputType="phone" />
             </com.google.android.material.textfield.TextInputLayout>
 
-
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
@@ -124,19 +125,68 @@
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <LinearLayout
+                android:id="@+id/createCardColorLl"
+                android:orientation="vertical"
+                android:background="@drawable/bg_focus_rounded"
+                android:layout_marginTop="@dimen/vertical_margin"
+                android:layout_marginStart="@dimen/horizontal_margin"
+                android:layout_marginEnd="@dimen/horizontal_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/chooseColorTitle"
+                    android:text="@string/choose_color_card"
+                    android:textColor="@color/colorDoveGray"
+                    android:layout_marginTop="@dimen/vertical_margin"
+                    android:layout_marginStart="@dimen/horizontal_margin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <RadioGroup
+                    android:id="@+id/chooseColorRb"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <RadioButton
+                        android:id="@+id/chooseColorRedRb"
+                        android:text="@string/choose_color_red"
+                        android:textColor="@color/colorDoveGray"
+                        android:layout_margin="@dimen/horizontal_margin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <RadioButton
+                        android:id="@+id/chooseColorBlueRb"
+                        android:text="@string/choose_color_blue"
+                        android:textColor="@color/colorDoveGray"
+                        android:layout_margin="@dimen/horizontal_margin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <RadioButton
+                        android:id="@+id/chooseColorGreenRb"
+                        android:text="@string/choose_color_green"
+                        android:textColor="@color/colorDoveGray"
+                        android:layout_margin="@dimen/horizontal_margin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </RadioGroup>
+            </LinearLayout>
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/createCardGenerateBt"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/buttonSize"
                 android:layout_marginStart="@dimen/horizontal_margin"
-                android:layout_marginTop="@dimen/vertical_margin_large"
+                android:layout_marginTop="@dimen/vertical_margin"
                 android:layout_marginEnd="@dimen/horizontal_margin"
                 android:layout_marginBottom="@dimen/vertical_margin"
                 android:fontFamily="@font/google_sans"
                 android:text="@string/create_button_generate"
                 android:textAllCaps="false" />
         </TableLayout>
-
 
         <com.sugarspoon.qrreader.widgets.LoadingView
             android:id="@+id/createCardGenerateLv"

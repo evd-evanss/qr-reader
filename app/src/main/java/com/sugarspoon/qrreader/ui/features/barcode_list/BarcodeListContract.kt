@@ -11,12 +11,14 @@ interface BarcodeListContract {
         fun displayError(message: String?)
         fun openBrowser(barcodeItem: BarcodeEntity)
         fun displayBarcodeList(list: List<BarcodeEntity>)
-        fun displayPlaceHolder()
+        fun displayLoading(isLoading: Boolean)
     }
 
     interface Presenter: BasePresenter<View> {
-        fun onItemClicked(barcodeItem: BarcodeEntity)
         fun attachedView(view: BarcodeListFragment)
+        fun onItemClicked(barcodeItem: BarcodeEntity)
+        fun onDeleteItem(barcodeEntity: BarcodeEntity)
+        fun onOpenBrowser(barcodeEntity: BarcodeEntity)
     }
 
 }

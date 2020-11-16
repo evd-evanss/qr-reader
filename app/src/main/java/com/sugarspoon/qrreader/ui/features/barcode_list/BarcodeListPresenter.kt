@@ -12,38 +12,49 @@ class BarcodeListPresenter(
     private val repository: BarcodeRepository
 ) : BarcodeListContract.Presenter {
 
-    override fun onViewCreated() {
-        view?.setListeners()
-        fetchBarcodeOnDb()
-    }
-
     override fun attachedView(view: BarcodeListFragment) {
         this.view = view
     }
 
+    override fun onViewCreated() {
+        view?.setListeners()
+    }
+
     override fun onViewResumed() {
         view?.setViews()
+        view?.displayLoading(true)
+        fetchBarcodeOnDb()
     }
 
     private fun fetchBarcodeOnDb() {
-        CoroutineScope(IO).launch {
-            repository.allCards.onCollect(
-                onSuccess = {
-                    if(it.isEmpty()) {
-                        view?.displayPlaceHolder()
-                    } else {
-                        view?.displayBarcodeList(it)
+        view?.run {
+            CoroutineScope(IO).launch {
+                repository.allCards.onCollect(
+                    onSuccess = {
+                        displayBarcodeList(it)
+                    },
+                    onError = {
+                        displayBarcodeList(listOf())
                     }
-                },
-                onError = {
-                    view?.displayBarcodeList(listOf())
-                }
-            )
+                )
+            }
+
         }
+
     }
 
     override fun onItemClicked(barcodeItem: BarcodeEntity) {
-        view?.openBrowser(barcodeItem)
+
+    }
+
+    override fun onDeleteItem(barcodeEntity: BarcodeEntity) {
+        CoroutineScope(IO).launch {
+            repository.delete(barcodeEntity)
+        }
+    }
+
+    override fun onOpenBrowser(barcodeEntity: BarcodeEntity) {
+        view?.openBrowser(barcodeEntity)
     }
 
     override fun detachView() {

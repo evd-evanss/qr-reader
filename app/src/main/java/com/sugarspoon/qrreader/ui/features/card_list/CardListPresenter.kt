@@ -22,6 +22,7 @@ class CardListPresenter(
 
     override fun onViewResumed() {
         view?.setViews()
+        view?.displayLoading(true)
         fetchAllCards()
     }
 
@@ -30,17 +31,24 @@ class CardListPresenter(
             repository.allCards.onCollect(
                 onSuccess = {
                     view?.displayCards(it.toMutableList())
+                    view?.displayLoading(false)
                 },
                 onError = {
                     view?.displayError(it.message)
+                    view?.displayLoading(false)
                 }
             )
-
         }
     }
 
-    override fun onCardClicked(cardItem: VirtualCardEntity) {
-        view?.openShareHelper(cardItem)
+    override fun onDeleteItem(item: VirtualCardEntity) {
+        CoroutineScope(IO).launch {
+            repository.delete(item)
+        }
+    }
+
+    override fun onExtendClicked(cardItem: VirtualCardEntity) {
+        view?.openViewExtended(cardItem)
     }
 
     override fun detachView() {

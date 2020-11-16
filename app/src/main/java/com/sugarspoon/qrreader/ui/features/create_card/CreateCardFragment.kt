@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import com.sugarspoon.qrreader.R
 import com.sugarspoon.qrreader.base.BaseFragment
 import com.sugarspoon.qrreader.data.database.QrDataBase
@@ -81,6 +82,29 @@ class CreateCardFragment :
                 presenter.onGenerateVirtualCardClicked()
                 createCardGenerateLv.displayLoading(true)
             }
+            chooseColorRedRb.setOnClickListener {
+                chooseColor()
+            }
+            chooseColorBlueRb.setOnClickListener {
+                chooseColor()
+            }
+            chooseColorGreenRb.setOnClickListener {
+                chooseColor()
+            }
+        }
+    }
+
+    private fun chooseColor() {
+        when(chooseColorRb.checkedRadioButtonId) {
+            R.id.chooseColorRedRb -> presenter.chooseColorRed()
+            R.id.chooseColorBlueRb -> presenter.chooseColorBlue()
+            R.id.chooseColorGreenRb -> presenter.chooseColorGreen()
+        }
+    }
+
+    override fun chooseCardColor(color: Int) {
+        view?.run {
+            chooseColorTitle.setTextColor(ContextCompat.getColor(requireContext(), color))
         }
     }
 

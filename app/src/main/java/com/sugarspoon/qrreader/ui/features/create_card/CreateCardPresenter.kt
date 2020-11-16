@@ -1,5 +1,6 @@
 package com.sugarspoon.qrreader.ui.features.create_card
 
+import com.sugarspoon.qrreader.R
 import com.sugarspoon.qrreader.data.entity.VirtualCardEntity
 import com.sugarspoon.qrreader.data.service.VirtualCardRepository
 
@@ -7,6 +8,8 @@ class CreateCardPresenter(
     private var view: CreateCardContract.View?,
     private val repository: VirtualCardRepository
 ) : CreateCardContract.Presenter {
+
+    private var colorChosen = GREEN
 
     override fun onViewCreated() {
         view?.setViews()
@@ -24,6 +27,21 @@ class CreateCardPresenter(
         }
     }
 
+    override fun chooseColorRed() {
+        view?.chooseCardColor(color = RED)
+        colorChosen = RED
+    }
+
+    override fun chooseColorBlue() {
+        view?.chooseCardColor(color = BLUE)
+        colorChosen = BLUE
+    }
+
+    override fun chooseColorGreen() {
+        view?.chooseCardColor(color = GREEN)
+        colorChosen = GREEN
+    }
+
     private fun saveVirtualCard() {
         view?.run {
             val virtualCard = VirtualCardEntity(
@@ -33,7 +51,8 @@ class CreateCardPresenter(
                 tel = tel,
                 address = address,
                 site = site,
-                company = company
+                company = company,
+                color = colorChosen
             )
             repository.insert(virtualCard)
             generateVirtualCard(virtualCard = virtualCard)
@@ -55,5 +74,11 @@ class CreateCardPresenter(
 
     override fun detachView() {
         view = null
+    }
+
+    companion object {
+        private const val RED = R.color.red
+        private const val BLUE = R.color.color_blue_dark
+        private const val GREEN = R.color.green_mid
     }
 }

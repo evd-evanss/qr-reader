@@ -153,7 +153,8 @@
     <color name="colorBostonBlue">#3873B8</color>
     <color name="colorOrient">#005485</color>
     <color name="colorAstronautBlue">#003A5C</color>
-    <color name="colorTransparent">#00000000</color>
+    <color name="colorTransparent">#00ffffff</color>
+    <color name="colorMidTransparent">#AD000000</color>
     <color name="colorTransparentBlur">#FF000000</color>
     <color name="colorSeaBuckthornt">#FAAA32</color>
     <color name="colorHotCinnamon">#E66423</color>

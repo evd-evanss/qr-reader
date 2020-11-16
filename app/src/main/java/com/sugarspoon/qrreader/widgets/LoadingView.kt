@@ -25,6 +25,7 @@ class LoadingView : FrameLayout {
             when(this) {
                 is LoadingIntent.CreateVirtualCard -> setView(this.title, this.body)
                 is LoadingIntent.VirtualCardList -> setView(this.title, this.body)
+                is LoadingIntent.BarcodeList -> setView(this.title, this.body)
             }
         }
     }
@@ -53,7 +54,11 @@ class LoadingView : FrameLayout {
         ): LoadingIntent()
         class VirtualCardList(
             val title: Int = R.string.validate_generic_loading_title,
-            val body: Int = R.string.validate_virtual_card_loading_body
+            val body: Int = R.string.my_cards_loading_body
+        ): LoadingIntent()
+        class BarcodeList(
+            val title: Int = R.string.validate_generic_loading_title,
+            val body: Int = R.string.barcode_list_loading_body
         ): LoadingIntent()
     }
 }

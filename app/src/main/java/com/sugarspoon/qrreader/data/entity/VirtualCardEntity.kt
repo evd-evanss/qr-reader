@@ -13,5 +13,6 @@ data class VirtualCardEntity (
     @ColumnInfo(name = "tel") val tel: String,
     @ColumnInfo(name = "address") val address: String,
     @ColumnInfo(name = "company") val company: String,
-    @ColumnInfo(name = "site") val site: String
+    @ColumnInfo(name = "site") val site: String,
+    @ColumnInfo(name = "color") val color: Int,
 )

@@ -3,6 +3,8 @@ package com.sugarspoon.qrreader.widgets
 import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatDialog
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import com.sugarspoon.qrreader.R
 import com.sugarspoon.qrreader.extensions.setVisible
 import kotlinx.android.synthetic.main.generic_dialog.*
@@ -19,8 +21,16 @@ class GenericDialog(
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.generic_dialog)
+        window?.setBackgroundDrawableResource(R.drawable.bg_generic_dialog)
         setupUi()
         setupListeners()
+    }
+
+    private fun setLayoutToMatchWindowSize() {
+        window!!.setLayout(
+            ConstraintLayout.LayoutParams.MATCH_PARENT,
+            ConstraintLayout.LayoutParams.MATCH_PARENT
+        )
     }
 
     fun showIfPermissionsGranted(isGranted: Boolean) {

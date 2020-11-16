@@ -10,12 +10,14 @@ interface CardListContract {
         fun setViews()
         fun displayCards(cardList: MutableList<VirtualCardEntity>)
         fun displayError(message: String?)
-        fun openShareHelper(content: VirtualCardEntity)
+        fun openViewExtended(content: VirtualCardEntity)
+        fun displayLoading(isLoading: Boolean)
     }
 
     interface Presenter: BasePresenter<View> {
-        fun onCardClicked(cardItem: VirtualCardEntity)
+        fun onExtendClicked(cardItem: VirtualCardEntity)
         fun attachedView(view: CardListFragment)
+        fun onDeleteItem(item: VirtualCardEntity)
 
     }
 

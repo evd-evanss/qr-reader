@@ -16,10 +16,14 @@ interface CreateCardContract {
         fun setViews(): Unit?
         fun generateVirtualCard(virtualCard: VirtualCardEntity)
         fun displayFieldError()
+        fun chooseCardColor(color: Int)
     }
 
     interface Presenter: BasePresenter<View> {
         fun onGenerateVirtualCardClicked()
+        fun chooseColorRed()
+        fun chooseColorBlue()
+        fun chooseColorGreen()
 
     }
 

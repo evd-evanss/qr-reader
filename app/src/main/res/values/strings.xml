@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">QR Reader</string>
 
-
     <!-- LOADING-->
     <string name="validate_generic_loading_title">Aguarde!</string>
     <string name="validate_virtual_card_loading_body">Estamos criando seu Cartão Virtual</string>
@@ -29,15 +28,36 @@
     <string name="create_checkbox_frequency">Utilizar mais de uma vez</string>
     <string name="create_title_company">Nome da empresa:</string>
     <string name="reader_activity_button">Visitar Site</string>
-    <string name="generic_dialog_title">Alerta de Segurança</string>
-    <string name="generic_dialog_body">Você está prestes a abrir um link externo, o QR Reader não tem nenhuma relação com qualquer site externo, se está certo de que quer prosseguir clique em continuar.</string>
-    <string name="action_cancel">Cancelar</string>
-    <string name="action_continue">Continuar</string>
-    <string name="create_button_generate">Gerar cartão de visita</string>
+   <string name="create_button_generate">Gerar cartão de visita</string>
     <string name="create_title_address">Endereço</string>
     <string name="create_title_phone">Telefone</string>
     <string name="menu_title_my_cards">Meus Cartões</string>
+
+    <!--> ACTIONS -->
+    <string name="action_cancel">Cancelar</string>
+    <string name="action_open">Abrir</string>
+    <string name="action_delete">Excluir</string>
+    <string name="action_continue">Continuar</string>
     <string name="action_share_via">Compartilhar através de</string>
+
+    <!--> EMPTY HOLDERS -->
     <string name="barcode_empty_title">Ops!</string>
     <string name="barcode_empty_body">Você ainda não leu nenhum Qr Code</string>
+    <string name="cards_empty_title">Ops!</string>
+    <string name="cards_empty_body">Você ainda não cadastrou nenhum cartão de visita</string>
+    <string name="action_description_delete">Deletar Item</string>
+    <string name="action_description_open_browser">Abrir no browser</string>
+
+    <!--> DIALOGS -->
+    <string name="generic_dialog_title">Alerta de Segurança</string>
+    <string name="generic_dialog_body">Você está prestes a abrir um link externo, o QR Reader não tem nenhuma relação com qualquer site externo, se está certo de que quer prosseguir clique em continuar.</string>
+    <string name="delete_dialog_title">Deletar Item?</string>
+    <string name="delete_dialog_body">Se está certo de que quer deletar clique em continuar.</string>
+    <string name="choose_color_card">Escolha a cor do seu cartão</string>
+    <string name="choose_color_red">Vermelho</string>
+    <string name="choose_color_blue">Azul</string>
+    <string name="choose_color_green">Verde</string>
+    <string name="my_cards_loading_body">Estamos carregando seus cartões.</string>
+    <string name="barcode_list_loading_body">Estamos carregando seus códigos...</string>
+
 </resources>

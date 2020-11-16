@@ -11,10 +11,10 @@ import com.sugarspoon.qrreader.base.BaseFragment
 import com.sugarspoon.qrreader.data.database.QrDataBase
 import com.sugarspoon.qrreader.data.entity.VirtualCardEntity
 import com.sugarspoon.qrreader.data.service.VirtualCardRepository
-import com.sugarspoon.qrreader.extensions.setup
 import com.sugarspoon.qrreader.ui.features.card.VirtualCardActivity
 import com.sugarspoon.qrreader.utils.ToolbarOptions
-import com.sugarspoon.qrreader.widgets.ShareReceiptHelper
+import com.sugarspoon.qrreader.widgets.GenericDialog
+import com.sugarspoon.qrreader.widgets.LoadingView
 import kotlinx.android.synthetic.main.fragment_my_cards.*
 import org.jetbrains.anko.support.v4.toast
 
@@ -29,8 +29,6 @@ class CardListFragment :
         presenter
     }
 
-    private var shareReceiptHelper: ShareReceiptHelper? = null
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -43,7 +41,7 @@ class CardListFragment :
         val adapter = CardListAdapter(
             object : CardListAdapter.OnColorListener {
                 override fun onCardClicked(cardItem: VirtualCardEntity) {
-                    presenter.onCardClicked(cardItem)
+                    presenter.onExtendClicked(cardItem)
                 }
             }
         )
@@ -61,29 +59,50 @@ class CardListFragment :
         presenter.onViewResumed()
     }
 
-    override fun setListeners() {}
+    override fun setListeners() {
+        view?.run {
+            listAdapter.onCardDelete = { item ->
+                GenericDialog(
+                    context = context,
+                    title = R.string.delete_dialog_title,
+                    body = R.string.delete_dialog_body,
+                    listener = object : GenericDialog.GenericDialogListener {
+                        override fun onConfirm() {
+                            presenter.onDeleteItem(item)
+                        }
+                        override fun onCancel() {}
+                    }
+                ).show()
+            }
+        }
+    }
 
     override fun setViews() {
         view?.run {
+            myCardsLoadingLv.setView(LoadingView.LoadingIntent.VirtualCardList())
             setToolbar(ToolbarOptions.ListCards(), false)
-            myCardsRv.setup(
-                adapter = listAdapter,
-                layoutManager = LinearLayoutManager(requireContext()),
-                hasFixedSize = true
-            )
         }
     }
 
     override fun displayCards(cardList: MutableList<VirtualCardEntity>) {
+        myCardsRv.layoutManager = LinearLayoutManager(requireContext())
+        myCardsRv.setEmptyView(emptyCardListCl)
+        myCardsRv.adapter = listAdapter
         listAdapter.list.clear()
         listAdapter.setCardList(cardList)
     }
 
     override fun displayError(message: String?) {
-        toast(message ?: "Você não tem Cartões cadastrados")
+        toast(message ?: "Erro desconhecido")
     }
 
-    override fun openShareHelper(content: VirtualCardEntity) {
+    override fun displayLoading(isLoading: Boolean) {
+        view?.run {
+            myCardsLoadingLv.displayLoading(isLoading)
+        }
+    }
+
+    override fun openViewExtended(content: VirtualCardEntity) {
         requireActivity().run {
             val intent = Intent(this, VirtualCardActivity::class.java)
             intent.putExtra(KEY, content.id)

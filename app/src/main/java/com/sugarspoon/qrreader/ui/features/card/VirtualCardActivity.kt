@@ -1,20 +1,29 @@
 package com.sugarspoon.qrreader.ui.features.card
 
+import android.app.Activity
+import android.content.Intent
+import android.graphics.PorterDuff
 import android.os.Bundle
+import android.view.WindowManager
+import com.google.zxing.integration.android.IntentIntegrator
 import com.sugarspoon.qrreader.R
 import com.sugarspoon.qrreader.base.BaseActivity
 import com.sugarspoon.qrreader.data.database.QrDataBase
 import com.sugarspoon.qrreader.data.entity.VirtualCardEntity
 import com.sugarspoon.qrreader.data.service.VirtualCardRepository
 import com.sugarspoon.qrreader.utils.CreatePix
+import com.sugarspoon.qrreader.utils.PermissionsHelper
+import com.sugarspoon.qrreader.utils.Screenshot
 import com.sugarspoon.qrreader.utils.extensions.setQrCodeByString
 import com.sugarspoon.qrreader.widgets.ShareReceiptHelper
 import kotlinx.android.synthetic.main.activity_virtual_card.*
+import kotlinx.android.synthetic.main.item_cards.view.*
 import org.jetbrains.anko.toast
 
 class VirtualCardActivity :
     BaseActivity(),
     CreatePix.CreatePixListener,
+    PermissionsHelper.OnPermissionResult,
     VirtualCardContract.View{
 
     private val presenter: VirtualCardContract.Presenter by lazy {
@@ -35,6 +44,8 @@ class VirtualCardActivity :
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN)
         setContentView(R.layout.activity_virtual_card)
         virtualCardLoadingLv.setView()
         presenter.onViewCreated()
@@ -50,6 +61,7 @@ class VirtualCardActivity :
             virtualCardAddress.text = virtualCard.address
             virtualCardSite.text = virtualCard.site
             readerContentIv.setQrCodeByString(virtualCard.site)
+            receiptVirtualCard.background.setColorFilter(context.getColor(virtualCard.color), PorterDuff.Mode.SRC_IN)
         }
     }
 
@@ -79,7 +91,44 @@ class VirtualCardActivity :
     }
 
     override fun shareReceipt() {
-        shareReceiptHelper.shareReceipt()
+        Screenshot.takeScreenshot(receiptVirtualCard)
+        //shareReceiptHelper.shareReceipt()
+    }
+
+    override fun onAllPermissionsGranted(requestCode: Int) {
+
+    }
+
+    override fun onPermissionsDenied(
+        requestCode: Int,
+        deniedPermissions: List<String>,
+        deniedPermissionsWithNeverAskAgainOption: List<String>
+    ) {
+
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        shareReceiptHelper.onRequestPermissionsResult(
+            requestCode,
+            permissions,
+            grantResults
+        )
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK) {
+            IntentIntegrator.parseActivityResult(
+                requestCode,
+                resultCode,
+                data
+            )
+        }
     }
 
     override fun onPause() {

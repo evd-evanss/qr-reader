@@ -21,20 +21,21 @@
             android:layout_width="@dimen/qr_code_small_size"
             android:layout_height="@dimen/qr_code_small_size"
             android:layout_margin="@dimen/horizontal_margin"
+            android:background="@color/lightGray"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/itemBarcodeUrlTv"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/color_blue_dark"
             android:layout_marginHorizontal="@dimen/horizontal_margin"
+            android:textColor="@color/color_blue_dark"
             app:layout_constraintBottom_toTopOf="@+id/itemBarcodeDateTv"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/itemBarcodeIv"
-            app:layout_constraintTop_toTopOf="@+id/itemBarcodeIv" />
+            app:layout_constraintTop_toTopOf="@+id/itemBarcodeIv"
+            tools:text="www.google.com" />
 
         <TextView
             android:id="@+id/itemBarcodeDateTv"
@@ -42,10 +43,39 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/horizontal_margin"
             app:layout_constraintBottom_toBottomOf="@+id/itemBarcodeIv"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/itemBarcodeIv"
-            app:layout_constraintTop_toBottomOf="@+id/itemBarcodeUrlTv" />
+            app:layout_constraintTop_toBottomOf="@+id/itemBarcodeUrlTv"
+            tools:text="15/11/2020 09:31" />
 
+        <ImageView
+            android:id="@+id/itemBarcodeDeleteIv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/horizontal_margin"
+            android:layout_marginBottom="@dimen/vertical_margin"
+            android:src="@drawable/ic_delete"
+            android:tint="@color/colorEmperor"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?android:attr/selectableItemBackground"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="@string/action_description_delete"
+        tools:ignore="UseAppTint" />
 
+        <ImageView
+            android:id="@+id/itemBarcodeOpenBrowserIv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/horizontal_margin" android:layout_marginBottom="@dimen/vertical_margin"
+            android:src="@drawable/ic_open_browser"
+            android:tint="@color/colorEmperor"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?android:attr/selectableItemBackground"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/itemBarcodeDeleteIv"
+            tools:ignore="UseAppTint"
+            android:contentDescription="@string/action_description_open_browser" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.sugarspoon.qrreader.ui.features.card_list
 
+import android.graphics.PorterDuff
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,7 @@ import kotlinx.android.synthetic.main.item_cards.view.*
 class CardListAdapter(private val onCardClicked: OnColorListener): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     var list: MutableList<VirtualCardEntity> = mutableListOf()
+    var onCardDelete: ((VirtualCardEntity) -> Unit)? = null
 
     fun setCardList(cardList: List<VirtualCardEntity>) {
         list.addAll(cardList)
@@ -43,7 +45,7 @@ class CardListAdapter(private val onCardClicked: OnColorListener): RecyclerView.
 
     override fun getItemCount() = list.size
 
-    class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(cardItem: VirtualCardEntity, onColorListener: OnColorListener) {
             itemView.apply {
@@ -55,10 +57,13 @@ class CardListAdapter(private val onCardClicked: OnColorListener): RecyclerView.
                     itemCardEmailTv.text = cardItem.email
                     itemCardAddressTv.text = cardItem.email
                     itemCardSiteTv.text = cardItem.address
-                    itemCardShareIv.setOnClickListener {
+                    itemCardExtendIv.setOnClickListener {
                         onColorListener.onCardClicked(cardItem)
                     }
-
+                    container.background.setColorFilter(context.getColor(cardItem.color), PorterDuff.Mode.SRC_IN)
+                    itemCardDeleteIv.setOnClickListener {
+                        onCardDelete?.invoke(cardItem)
+                    }
                 }
             }
         }
