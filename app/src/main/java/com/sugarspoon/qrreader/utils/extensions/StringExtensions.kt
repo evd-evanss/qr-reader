@@ -1,5 +1,8 @@
 package com.sugarspoon.qrreader.utils.extensions
 
+import android.text.TextUtils
+import android.util.Patterns
+
 fun String.addMask(inputMask: String, substitute: Char? = '#'): String {
     var mask = inputMask
     var unmaskedString = this.unmask()
@@ -37,3 +40,6 @@ fun String.addZerosUntilLength(quantity: Int): String {
 }
 
 fun String.unmask() = MaskedText.unMask(this)
+
+fun String.isValidEmail() =
+    !TextUtils.isEmpty(this) && Patterns.EMAIL_ADDRESS.matcher(this).matches()

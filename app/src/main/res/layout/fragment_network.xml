@@ -38,7 +38,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/createCardAddressBt"
+            android:id="@+id/createCardSiteBt"
             android:layout_width="match_parent"
             android:layout_height="@dimen/buttonSize"
             android:layout_marginStart="@dimen/horizontal_margin"

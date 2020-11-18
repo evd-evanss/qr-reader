@@ -5,6 +5,7 @@ import com.sugarspoon.qrreader.data.service.BarcodeRepository
 import com.sugarspoon.qrreader.utils.extensions.onCollect
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class BarcodeListPresenter(

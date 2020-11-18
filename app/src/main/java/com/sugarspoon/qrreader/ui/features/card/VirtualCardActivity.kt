@@ -22,7 +22,6 @@ import org.jetbrains.anko.toast
 
 class VirtualCardActivity :
     BaseActivity(),
-    CreatePix.CreatePixListener,
     PermissionsHelper.OnPermissionResult,
     VirtualCardContract.View{
 
@@ -36,10 +35,6 @@ class VirtualCardActivity :
 
     private val shareReceiptHelper: ShareReceiptHelper by lazy {
         ShareReceiptHelper(this, receiptVirtualCard)
-    }
-
-    private val generatePix by lazy {
-        CreatePix(this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -84,10 +79,6 @@ class VirtualCardActivity :
                 presenter.onShareClicked()
             }
         }
-    }
-
-    override fun onPixCreate(payload: String) {
-        generatePix.clearPayload()
     }
 
     override fun shareReceipt() {

@@ -12,11 +12,13 @@ interface CardListContract {
         fun displayError(message: String?)
         fun openViewExtended(content: VirtualCardEntity)
         fun displayLoading(isLoading: Boolean)
+        fun openRegisterFlow()
     }
 
     interface Presenter: BasePresenter<View> {
         fun onExtendClicked(cardItem: VirtualCardEntity)
         fun attachedView(view: CardListFragment)
+        fun onCardAddClicked()
         fun onDeleteItem(item: VirtualCardEntity)
 
     }

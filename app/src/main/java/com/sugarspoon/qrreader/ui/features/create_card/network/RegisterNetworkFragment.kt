@@ -1,4 +1,4 @@
-package com.sugarspoon.qrreader.ui.features.create_card.email
+package com.sugarspoon.qrreader.ui.features.create_card.network
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,33 +11,32 @@ import com.sugarspoon.qrreader.base.BaseFragment
 import com.sugarspoon.qrreader.data.entity.VirtualCardEntity
 import com.sugarspoon.qrreader.extensions.afterTextChanged
 import com.sugarspoon.qrreader.utils.ToolbarOptions
-import com.sugarspoon.qrreader.utils.extensions.isValidEmail
-import kotlinx.android.synthetic.main.fragment_email.*
+import kotlinx.android.synthetic.main.fragment_network.view.*
 
-class RegisterEmailFragment :
+class RegisterNetworkFragment:
     BaseFragment(),
-    RegisterEmailContract.View{
+    RegisterNetworkContract.View{
 
-    private val presenter: RegisterEmailContract.Presenter by lazy {
-        val arguments: RegisterEmailFragmentArgs by navArgs()
-        val presenter = RegisterEmailPresenter(arguments)
+    private val presenter: RegisterNetworkContract.Presenter by lazy {
+        val arguments: RegisterNetworkFragmentArgs by navArgs()
+        val presenter = RegisterNetworkPresenter(arguments)
         presenter
     }
 
-    override val email: String
-        get() = view?.run { createCardEmailEt.text.toString() } ?: ""
+    override val site: String
+        get() = view?.run { createCardSiteEt.text.toString() } ?: ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_email, container, false)
+        return inflater.inflate(R.layout.fragment_network, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        presenter.attachedView(this)
+        presenter.attachedView(view = this)
         presenter.onViewCreated()
     }
 
@@ -46,50 +45,39 @@ class RegisterEmailFragment :
         presenter.onViewResumed()
     }
 
-    override fun setViews() {
+    override fun setViews()  = view?.run {
         requireActivity().run {
-            setToolbar(ToolbarOptions.RegisterCardEmail(), true)
+            setToolbar(ToolbarOptions.RegisterCardNetwork(), false)
         }
     }
 
     override fun enableContinue(isVisible: Boolean) {
         view?.run {
-            createCardEmailBt.isEnabled = isVisible
+            createCardSiteBt.isEnabled = isVisible
         }
     }
 
     override fun setListeners() {
         view?.run {
-            createCardEmailBt.setOnClickListener {
+            createCardSiteBt.setOnClickListener {
                 presenter.onContinueClicked()
             }
-            createCardEmailEt.afterTextChanged {
-                presenter.afterTextChanged(
-                    it.isValidEmail()
-                )
+
+            createCardSiteEt.afterTextChanged {
+                presenter.afterTextChanged(text = it)
             }
         }
     }
 
-    override fun openNextStep(virtualCardEntity: VirtualCardEntity) {
+    override fun openNextStep(card: VirtualCardEntity) {
         findNavController().navigate(
-            RegisterEmailFragmentDirections
-                .actionRegisterEmailFragmentToRegisterAddressFragment(
-                    virtualCardEntity
-                )
+            RegisterNetworkFragmentDirections
+                .actionRegisterNetworkFragmentToRegisterColorFragment(card)
         )
-    }
-
-    override fun onPause() {
-        super.onPause()
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         presenter.detachView()
-    }
-
-    override fun onDetach() {
-        super.onDetach()
     }
 }

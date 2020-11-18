@@ -1,8 +1,14 @@
 package com.sugarspoon.qrreader.ui.features.create_card.address
 
 class RegisterAddressPresenter(
-    private var view: RegisterAddressContract.View?,
+    private val arguments: RegisterAddressFragmentArgs
 ) : RegisterAddressContract.Presenter {
+
+    private var view: RegisterAddressContract.View? = null
+
+    override fun attachedView(view: RegisterAddressFragment) {
+        this.view = view
+    }
 
     override fun onViewCreated() {
         view?.setViews()
@@ -12,19 +18,21 @@ class RegisterAddressPresenter(
        view?.setListeners()
     }
 
-    private fun allFieldValid() : Boolean {
+    override fun onContinueClicked() {
         view?.run {
-            return if(address.isEmpty()) {
-//                view?.displayFieldError()
-                false
-            } else {
-                true
-            }
+            openNextStep(card = arguments.card.copy(address = address))
         }
-        return false
+    }
+
+    override fun afterTextChanged(text: String) {
+        view?.enableContinue(isVisible = text.length > SIZE_MIN)
     }
 
     override fun detachView() {
         view = null
+    }
+
+    companion object {
+        private const val SIZE_MIN = 5
     }
 }

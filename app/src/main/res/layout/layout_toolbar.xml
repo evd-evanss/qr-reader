@@ -17,6 +17,7 @@
     <TextView
         android:id="@+id/titleTv"
         style="@style/Title"
+        android:layout_marginHorizontal="@dimen/horizontal_margin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/toolbarIconIv"

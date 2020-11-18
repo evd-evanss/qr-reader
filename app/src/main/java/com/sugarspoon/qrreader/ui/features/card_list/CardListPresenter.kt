@@ -41,6 +41,10 @@ class CardListPresenter(
         }
     }
 
+    override fun onCardAddClicked() {
+        view?.openRegisterFlow()
+    }
+
     override fun onDeleteItem(item: VirtualCardEntity) {
         CoroutineScope(IO).launch {
             repository.delete(item)

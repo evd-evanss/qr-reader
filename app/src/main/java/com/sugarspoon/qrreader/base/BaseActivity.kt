@@ -6,6 +6,7 @@ import android.view.MenuItem
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.sugarspoon.qrreader.extensions.setVisible
 import com.sugarspoon.qrreader.utils.ToolbarOptions
 import kotlinx.android.synthetic.main.layout_toolbar.*
 import kotlinx.android.synthetic.main.layout_toolbar.view.*
@@ -26,19 +27,27 @@ open class BaseActivity : AppCompatActivity() {
     }
 
     fun setToolbar(options: ToolbarOptions, displayHomeAsUpEnabled: Boolean = false) = view?.run {
-        supportActionBar?.setDisplayHomeAsUpEnabled(displayHomeAsUpEnabled)
         when(options) {
-            is ToolbarOptions.Home -> bindToolbarContent(options.icon, options.title)
-            is ToolbarOptions.QrList -> bindToolbarContent(options.icon, options.title)
-            is ToolbarOptions.CreateCard  -> bindToolbarContent(options.icon, options.title)
-            is ToolbarOptions.ListCards  -> bindToolbarContent(options.icon, options.title)
-            is ToolbarOptions.Help -> bindToolbarContent(options.icon, options.title)
+            is ToolbarOptions.Home -> bindToolbarContent(options.icon, options.title, displayHomeAsUpEnabled)
+            is ToolbarOptions.QrList -> bindToolbarContent(options.icon, options.title, displayHomeAsUpEnabled)
+            is ToolbarOptions.CreateCard  -> bindToolbarContent(options.icon, options.title, displayHomeAsUpEnabled)
+            is ToolbarOptions.ListCards  -> bindToolbarContent(options.icon, options.title, displayHomeAsUpEnabled)
+            is ToolbarOptions.Help -> bindToolbarContent(options.icon, options.title, displayHomeAsUpEnabled)
+            is ToolbarOptions.RegisterCardName -> bindToolbarContent(options.icon, options.title, displayHomeAsUpEnabled)
+            is ToolbarOptions.RegisterCardEmail -> bindToolbarContent(options.icon, options.title, displayHomeAsUpEnabled)
+            is ToolbarOptions.RegisterCardAddress -> bindToolbarContent(options.icon, options.title, displayHomeAsUpEnabled)
+            is ToolbarOptions.RegisterCardTelephone -> bindToolbarContent(options.icon, options.title, displayHomeAsUpEnabled)
+            is ToolbarOptions.RegisterCardCompany -> bindToolbarContent(options.icon, options.title, displayHomeAsUpEnabled)
+            is ToolbarOptions.RegisterCardNetwork -> bindToolbarContent(options.icon, options.title, displayHomeAsUpEnabled)
+            is ToolbarOptions.RegisterCardColor -> bindToolbarContent(options.icon, options.title, displayHomeAsUpEnabled)
         }
     }
 
-    private fun bindToolbarContent(icon: Int, title: Int, ) {
+    private fun bindToolbarContent(icon: Int?, title: Int, displayHomeAsUpEnabled: Boolean) {
         titleTv.text = getString(title)
-        toolbarIconIv.setImageResource(icon)
+        toolbarIconIv.setVisible(icon != null)
+        icon?.let { toolbarIconIv.setImageResource(it) }
+        setToolbar(getString(title), displayHomeAsUpEnabled)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

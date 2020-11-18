@@ -12,6 +12,7 @@ import com.sugarspoon.qrreader.data.database.QrDataBase
 import com.sugarspoon.qrreader.data.entity.VirtualCardEntity
 import com.sugarspoon.qrreader.data.service.VirtualCardRepository
 import com.sugarspoon.qrreader.ui.features.card.VirtualCardActivity
+import com.sugarspoon.qrreader.ui.features.create_card.CreateCardActivity
 import com.sugarspoon.qrreader.utils.ToolbarOptions
 import com.sugarspoon.qrreader.widgets.GenericDialog
 import com.sugarspoon.qrreader.widgets.LoadingView
@@ -74,12 +75,15 @@ class CardListFragment :
                     }
                 ).show()
             }
+
+            myCardsAddItemBt.setOnClickListener {
+                presenter.onCardAddClicked()
+            }
         }
     }
 
     override fun setViews() {
         view?.run {
-            myCardsLoadingLv.setView(LoadingView.LoadingIntent.VirtualCardList())
             setToolbar(ToolbarOptions.ListCards(), false)
         }
     }
@@ -98,7 +102,14 @@ class CardListFragment :
 
     override fun displayLoading(isLoading: Boolean) {
         view?.run {
-            myCardsLoadingLv.displayLoading(isLoading)
+        }
+    }
+
+    override fun openRegisterFlow() {
+        view?.run {
+            requireActivity().run {
+                startActivity(Intent(this, CreateCardActivity::class.java))
+            }
         }
     }
 

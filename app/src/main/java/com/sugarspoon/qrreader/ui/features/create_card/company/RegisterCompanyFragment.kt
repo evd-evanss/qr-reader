@@ -1,4 +1,4 @@
-package com.sugarspoon.qrreader.ui.features.create_card.address
+package com.sugarspoon.qrreader.ui.features.create_card.company
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,27 +11,27 @@ import com.sugarspoon.qrreader.base.BaseFragment
 import com.sugarspoon.qrreader.data.entity.VirtualCardEntity
 import com.sugarspoon.qrreader.extensions.afterTextChanged
 import com.sugarspoon.qrreader.utils.ToolbarOptions
-import kotlinx.android.synthetic.main.fragment_address.*
+import kotlinx.android.synthetic.main.fragment_company.*
 
-class RegisterAddressFragment :
+class RegisterCompanyFragment :
     BaseFragment(),
-    RegisterAddressContract.View{
+    RegisterCompanyContract.View{
 
-    private val presenter: RegisterAddressContract.Presenter by lazy {
-        val arguments: RegisterAddressFragmentArgs by navArgs()
-        val presenter = RegisterAddressPresenter(arguments)
+    private val presenter: RegisterCompanyContract.Presenter by lazy {
+        val arguments: RegisterCompanyFragmentArgs by navArgs()
+        val presenter = RegisterCompanyPresenter(arguments)
         presenter
     }
 
-    override val address: String
-        get() = view?.run { createCardAddressEt.text.toString() } ?: ""
+    override val company: String
+        get() = view?.run { createCardCompanyEt.text.toString() } ?: ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_address, container, false)
+        return inflater.inflate(R.layout.fragment_company, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -43,36 +43,35 @@ class RegisterAddressFragment :
     override fun onResume() {
         super.onResume()
         presenter.onViewResumed()
-        requireActivity().run {
-            setToolbar(ToolbarOptions.RegisterCardAddress(), false)
-        }
     }
 
     override fun setViews()  = view?.run {
         requireActivity().run {
-            setToolbar(ToolbarOptions.CreateCard(), false)
+            setToolbar(ToolbarOptions.RegisterCardCompany(), false)
         }
-    }
-
-    override fun enableContinue(isVisible: Boolean) {
-        createCardAddressBt.isEnabled = isVisible
     }
 
     override fun setListeners() {
         view?.run {
-            createCardAddressBt.setOnClickListener {
+            createCardCompanyBt.setOnClickListener {
                 presenter.onContinueClicked()
             }
-            createCardAddressEt.afterTextChanged {
+            createCardCompanyEt.afterTextChanged {
                 presenter.afterTextChanged(text = it)
             }
         }
     }
 
+    override fun enableContinue(isVisible: Boolean) {
+        view?.run {
+            createCardCompanyBt.isEnabled = isVisible
+        }
+    }
+
     override fun openNextStep(card: VirtualCardEntity) {
         findNavController().navigate(
-            RegisterAddressFragmentDirections
-                .actionRegisterAddressFragmentToRegisterPhoneFragment(card)
+            RegisterCompanyFragmentDirections
+                .actionRegisterCompanyFragmentToRegisterNetworkFragment(card)
         )
     }
 

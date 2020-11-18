@@ -47,6 +47,7 @@
             android:layout_marginBottom="@dimen/vertical_margin_XXlarge"
             android:fontFamily="@font/google_sans"
             android:text="@string/action_continue"
+            android:enabled="false"
             android:textAllCaps="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -30,6 +30,7 @@
 
         </activity>
         <activity android:name="com.sugarspoon.qrreader.ui.features.barcode_preview.BarcodePreviewActivity" />
+        <activity android:name="com.sugarspoon.qrreader.ui.features.create_card.CreateCardActivity" />
     </application>
 
 </manifest>

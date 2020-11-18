@@ -1,23 +1,22 @@
-package com.sugarspoon.qrreader.ui.features.create_card.address
+package com.sugarspoon.qrreader.ui.features.create_card.phone
 
 import com.sugarspoon.qrreader.base.BasePresenter
 import com.sugarspoon.qrreader.base.BaseView
 import com.sugarspoon.qrreader.data.entity.VirtualCardEntity
 
-interface RegisterAddressContract {
+interface RegisterPhoneContract {
 
     interface View: BaseView<Presenter> {
-        val address: String
+        val phone: String?
         fun setViews(): Unit?
         fun enableContinue(isVisible: Boolean)
-        fun openNextStep(card: VirtualCardEntity)
+        fun openNextStep(cardEntity: VirtualCardEntity)
     }
 
     interface Presenter: BasePresenter<View> {
-        fun onContinueClicked()
         fun afterTextChanged(text: String)
-        fun attachedView(view: RegisterAddressFragment)
-
+        fun onContinueClicked()
+        fun attachedView(view: RegisterPhoneFragment)
     }
 
 }

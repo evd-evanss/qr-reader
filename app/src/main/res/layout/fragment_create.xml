@@ -6,194 +6,194 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp">
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp">-->
 
-        <include
-            android:id="@+id/include2"
-            layout="@layout/layout_toolbar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+<!--        <include-->
+<!--            android:id="@+id/include2"-->
+<!--            layout="@layout/layout_toolbar"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
 
-        <TableLayout
-            android:id="@+id/tableLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin_bottom_fragments"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/include2"
-            app:layout_constraintVertical_bias="0.01999998">
+<!--        <TableLayout-->
+<!--            android:id="@+id/tableLayout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="@dimen/margin_bottom_fragments"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/include2"-->
+<!--            app:layout_constraintVertical_bias="0.01999998">-->
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/horizontal_margin"
-                android:layout_marginTop="@dimen/vertical_margin"
-                android:layout_marginEnd="@dimen/horizontal_margin"
-                android:hint="@string/create_title_name">
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="@dimen/horizontal_margin"-->
+<!--                android:layout_marginTop="@dimen/vertical_margin"-->
+<!--                android:layout_marginEnd="@dimen/horizontal_margin"-->
+<!--                android:hint="@string/create_title_name">-->
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/createCardNameEt"
-                    android:textColorHint="@color/green_mid"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:maxLength="@integer/name_length" />
-            </com.google.android.material.textfield.TextInputLayout>
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:id="@+id/createCardNameEt"-->
+<!--                    android:textColorHint="@color/green_mid"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:maxLength="@integer/name_length" />-->
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/horizontal_margin"
-                android:layout_marginTop="@dimen/vertical_margin"
-                android:layout_marginEnd="@dimen/horizontal_margin"
-                android:hint="@string/create_email_hint">
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="@dimen/horizontal_margin"-->
+<!--                android:layout_marginTop="@dimen/vertical_margin"-->
+<!--                android:layout_marginEnd="@dimen/horizontal_margin"-->
+<!--                android:hint="@string/create_email_hint">-->
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/createCardEmailEt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress" />
-            </com.google.android.material.textfield.TextInputLayout>
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:id="@+id/createCardEmailEt"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:inputType="textEmailAddress" />-->
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/horizontal_margin"
-                android:layout_marginTop="@dimen/vertical_margin"
-                android:layout_marginEnd="@dimen/horizontal_margin"
-                android:hint="@string/create_title_address">
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="@dimen/horizontal_margin"-->
+<!--                android:layout_marginTop="@dimen/vertical_margin"-->
+<!--                android:layout_marginEnd="@dimen/horizontal_margin"-->
+<!--                android:hint="@string/create_title_address">-->
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/createCardAddressEt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPostalAddress" />
-            </com.google.android.material.textfield.TextInputLayout>
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:id="@+id/createCardAddressEt"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:inputType="textPostalAddress" />-->
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/horizontal_margin"
-                android:layout_marginTop="@dimen/vertical_margin"
-                android:layout_marginEnd="@dimen/horizontal_margin"
-                android:hint="@string/create_title_phone">
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="@dimen/horizontal_margin"-->
+<!--                android:layout_marginTop="@dimen/vertical_margin"-->
+<!--                android:layout_marginEnd="@dimen/horizontal_margin"-->
+<!--                android:hint="@string/create_title_phone">-->
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/createCardPhoneEt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="phone" />
-            </com.google.android.material.textfield.TextInputLayout>
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:id="@+id/createCardPhoneEt"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:inputType="phone" />-->
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/horizontal_margin"
-                android:layout_marginTop="@dimen/vertical_margin"
-                android:layout_marginEnd="@dimen/horizontal_margin"
-                android:hint="@string/create_title_company">
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="@dimen/horizontal_margin"-->
+<!--                android:layout_marginTop="@dimen/vertical_margin"-->
+<!--                android:layout_marginEnd="@dimen/horizontal_margin"-->
+<!--                android:hint="@string/create_title_company">-->
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/createCardCompanyEt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:maxLength="@integer/company_length" />
-            </com.google.android.material.textfield.TextInputLayout>
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:id="@+id/createCardCompanyEt"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:maxLength="@integer/company_length" />-->
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
 
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/horizontal_margin"
-                android:layout_marginTop="@dimen/vertical_margin"
-                android:layout_marginEnd="@dimen/horizontal_margin"
-                android:hint="@string/create_title_site">
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="@dimen/horizontal_margin"-->
+<!--                android:layout_marginTop="@dimen/vertical_margin"-->
+<!--                android:layout_marginEnd="@dimen/horizontal_margin"-->
+<!--                android:hint="@string/create_title_site">-->
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/createCardSiteEt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </com.google.android.material.textfield.TextInputLayout>
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:id="@+id/createCardSiteEt"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content" />-->
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
 
-            <LinearLayout
-                android:id="@+id/createCardColorLl"
-                android:orientation="vertical"
-                android:background="@drawable/bg_focus_rounded"
-                android:layout_marginTop="@dimen/vertical_margin"
-                android:layout_marginStart="@dimen/horizontal_margin"
-                android:layout_marginEnd="@dimen/horizontal_margin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+<!--            <LinearLayout-->
+<!--                android:id="@+id/createCardColorLl"-->
+<!--                android:orientation="vertical"-->
+<!--                android:background="@drawable/bg_focus_rounded"-->
+<!--                android:layout_marginTop="@dimen/vertical_margin"-->
+<!--                android:layout_marginStart="@dimen/horizontal_margin"-->
+<!--                android:layout_marginEnd="@dimen/horizontal_margin"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content">-->
 
-                <TextView
-                    android:id="@+id/chooseColorTitle"
-                    android:text="@string/choose_color_card"
-                    android:textColor="@color/colorDoveGray"
-                    android:layout_marginTop="@dimen/vertical_margin"
-                    android:layout_marginStart="@dimen/horizontal_margin"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+<!--                <TextView-->
+<!--                    android:id="@+id/chooseColorTitle"-->
+<!--                    android:text="@string/choose_color_card"-->
+<!--                    android:textColor="@color/colorDoveGray"-->
+<!--                    android:layout_marginTop="@dimen/vertical_margin"-->
+<!--                    android:layout_marginStart="@dimen/horizontal_margin"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"/>-->
 
-                <RadioGroup
-                    android:id="@+id/chooseColorRb"
-                    android:orientation="horizontal"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <RadioButton
-                        android:id="@+id/chooseColorRedRb"
-                        android:text="@string/choose_color_red"
-                        android:textColor="@color/colorDoveGray"
-                        android:layout_margin="@dimen/horizontal_margin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                    <RadioButton
-                        android:id="@+id/chooseColorBlueRb"
-                        android:text="@string/choose_color_blue"
-                        android:textColor="@color/colorDoveGray"
-                        android:layout_margin="@dimen/horizontal_margin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                    <RadioButton
-                        android:id="@+id/chooseColorGreenRb"
-                        android:text="@string/choose_color_green"
-                        android:textColor="@color/colorDoveGray"
-                        android:layout_margin="@dimen/horizontal_margin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                </RadioGroup>
-            </LinearLayout>
+<!--                <RadioGroup-->
+<!--                    android:id="@+id/chooseColorRb"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:gravity="center"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content">-->
+<!--                    <RadioButton-->
+<!--                        android:id="@+id/chooseColorRedRb"-->
+<!--                        android:text="@string/choose_color_red"-->
+<!--                        android:textColor="@color/colorDoveGray"-->
+<!--                        android:layout_margin="@dimen/horizontal_margin"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"/>-->
+<!--                    <RadioButton-->
+<!--                        android:id="@+id/chooseColorBlueRb"-->
+<!--                        android:text="@string/choose_color_blue"-->
+<!--                        android:textColor="@color/colorDoveGray"-->
+<!--                        android:layout_margin="@dimen/horizontal_margin"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"/>-->
+<!--                    <RadioButton-->
+<!--                        android:id="@+id/chooseColorGreenRb"-->
+<!--                        android:text="@string/choose_color_green"-->
+<!--                        android:textColor="@color/colorDoveGray"-->
+<!--                        android:layout_margin="@dimen/horizontal_margin"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"/>-->
+<!--                </RadioGroup>-->
+<!--            </LinearLayout>-->
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/createCardGenerateBt"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/buttonSize"
-                android:layout_marginStart="@dimen/horizontal_margin"
-                android:layout_marginTop="@dimen/vertical_margin"
-                android:layout_marginEnd="@dimen/horizontal_margin"
-                android:layout_marginBottom="@dimen/vertical_margin"
-                android:fontFamily="@font/google_sans"
-                android:text="@string/create_button_generate"
-                android:textAllCaps="false" />
-        </TableLayout>
+<!--            <com.google.android.material.button.MaterialButton-->
+<!--                android:id="@+id/createCardGenerateBt"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="@dimen/buttonSize"-->
+<!--                android:layout_marginStart="@dimen/horizontal_margin"-->
+<!--                android:layout_marginTop="@dimen/vertical_margin"-->
+<!--                android:layout_marginEnd="@dimen/horizontal_margin"-->
+<!--                android:layout_marginBottom="@dimen/vertical_margin"-->
+<!--                android:fontFamily="@font/google_sans"-->
+<!--                android:text="@string/create_button_generate"-->
+<!--                android:textAllCaps="false" />-->
+<!--        </TableLayout>-->
 
-        <com.sugarspoon.qrreader.widgets.LoadingView
-            android:id="@+id/createCardGenerateLv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone" />
+<!--        <com.sugarspoon.qrreader.widgets.LoadingView-->
+<!--            android:id="@+id/createCardGenerateLv"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:visibility="gone" />-->
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
 
 </ScrollView>

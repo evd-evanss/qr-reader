@@ -22,10 +22,65 @@
         <action
             android:id="@+id/action_registerEmailFragment_to_registerAddressFragment"
             app:destination="@id/registerAddressFragment" />
+        <argument
+            android:name="card"
+            app:argType="com.sugarspoon.qrreader.data.entity.VirtualCardEntity"/>
     </fragment>
     <fragment
         android:id="@+id/registerAddressFragment"
         tools:layout="@layout/fragment_address"
         android:name="com.sugarspoon.qrreader.ui.features.create_card.address.RegisterAddressFragment"
-        android:label="RegisterAddressFragment" />
+        android:label="RegisterAddressFragment" >
+        <action
+            android:id="@+id/action_registerAddressFragment_to_registerPhoneFragment"
+            app:destination="@id/registerPhoneFragment" />
+        <argument
+            android:name="card"
+            app:argType="com.sugarspoon.qrreader.data.entity.VirtualCardEntity"/>
+    </fragment>
+    <fragment
+        android:id="@+id/registerPhoneFragment"
+        tools:layout="@layout/fragment_telephone"
+        android:name="com.sugarspoon.qrreader.ui.features.create_card.phone.RegisterPhoneFragment"
+        android:label="RegisterPhoneFragment" >
+        <action
+            android:id="@+id/action_registerPhoneFragment_to_registerCompanyFragment"
+            app:destination="@id/registerCompanyFragment" />
+        <argument
+            android:name="card"
+            app:argType="com.sugarspoon.qrreader.data.entity.VirtualCardEntity"/>
+    </fragment>
+    <fragment
+        android:id="@+id/registerCompanyFragment"
+        tools:layout="@layout/fragment_company"
+        android:name="com.sugarspoon.qrreader.ui.features.create_card.company.RegisterCompanyFragment"
+        android:label="RegisterCompanyFragment" >
+        <action
+            android:id="@+id/action_registerCompanyFragment_to_registerNetworkFragment"
+            app:destination="@id/registerNetworkFragment" />
+        <argument
+            android:name="card"
+            app:argType="com.sugarspoon.qrreader.data.entity.VirtualCardEntity"/>
+    </fragment>
+    <fragment
+        android:id="@+id/registerNetworkFragment"
+        tools:layout="@layout/fragment_network"
+        android:name="com.sugarspoon.qrreader.ui.features.create_card.network.RegisterNetworkFragment"
+        android:label="RegisterNetworkFragment" >
+        <action
+            android:id="@+id/action_registerNetworkFragment_to_registerColorFragment"
+            app:destination="@id/registerColorFragment" />
+        <argument
+            android:name="card"
+            app:argType="com.sugarspoon.qrreader.data.entity.VirtualCardEntity"/>
+    </fragment>
+    <fragment
+        android:id="@+id/registerColorFragment"
+        tools:layout="@layout/fragment_choose_color"
+        android:name="com.sugarspoon.qrreader.ui.features.create_card.color.RegisterColorFragment"
+        android:label="RegisterColorFragment">
+        <argument
+            android:name="card"
+            app:argType="com.sugarspoon.qrreader.data.entity.VirtualCardEntity"/>
+    </fragment>
 </navigation>
