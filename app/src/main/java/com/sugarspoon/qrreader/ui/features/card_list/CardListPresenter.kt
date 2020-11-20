@@ -30,11 +30,12 @@ class CardListPresenter(
         CoroutineScope(IO).launch {
             repository.allCards.onCollect(
                 onSuccess = {
+                    view?.enableRegister(enable = it.isEmpty())
                     view?.displayCards(it.toMutableList())
                     view?.displayLoading(false)
                 },
                 onError = {
-                    view?.displayError(it.message)
+                    view?.displayEmpty()
                     view?.displayLoading(false)
                 }
             )

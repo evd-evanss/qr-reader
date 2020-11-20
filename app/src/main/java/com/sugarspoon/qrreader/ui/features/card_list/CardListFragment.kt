@@ -11,6 +11,7 @@ import com.sugarspoon.qrreader.base.BaseFragment
 import com.sugarspoon.qrreader.data.database.QrDataBase
 import com.sugarspoon.qrreader.data.entity.VirtualCardEntity
 import com.sugarspoon.qrreader.data.service.VirtualCardRepository
+import com.sugarspoon.qrreader.extensions.setVisible
 import com.sugarspoon.qrreader.ui.features.card.VirtualCardActivity
 import com.sugarspoon.qrreader.ui.features.create_card.CreateCardActivity
 import com.sugarspoon.qrreader.utils.ToolbarOptions
@@ -96,12 +97,21 @@ class CardListFragment :
         listAdapter.setCardList(cardList)
     }
 
-    override fun displayError(message: String?) {
-        toast(message ?: "Erro desconhecido")
+    override fun displayEmpty() {
+        view?.run {
+            myCardsRv.layoutManager = LinearLayoutManager(requireContext())
+            myCardsRv.setEmptyView(emptyCardListCl)
+        }
     }
 
     override fun displayLoading(isLoading: Boolean) {
         view?.run {
+        }
+    }
+
+    override fun enableRegister(enable: Boolean) {
+        view?.run {
+            myCardsAddItemBt.setVisible(enable)
         }
     }
 

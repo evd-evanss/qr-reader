@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/container"
-        android:background="@color/lightGray"
+        android:background="@drawable/bg_item_rounded"
         android:layout_margin="@dimen/horizontal_margin_small"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

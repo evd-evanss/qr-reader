@@ -15,8 +15,8 @@
     <string name="menu_title_create">Criar</string>
 
     <string name="qr_code_view_title">Ler QR Code</string>
-    <string name="create_card">Criar cartão de visita</string>
-    <string name="my_cards">Meu cartão de visita</string>
+    <string name="create_card">Criar Cartão de Visita</string>
+    <string name="my_cards">Meu Cartão de Visita</string>
     <string name="my_codes">Meus Códigos</string>
     <string name="help">Ajuda</string>
 
@@ -58,7 +58,7 @@
     <string name="choose_color_blue">Azul</string>
     <string name="choose_color_green">Verde</string>
     <string name="my_cards_loading_body">Estamos carregando seus cartões.</string>
-    <string name="barcode_list_loading_body">Estamos carregando seus códigos...</string>
+    <string name="barcode_list_loading_body">Estamos carregando seus códigos…</string>
     <string name="register_card_button_text">Cadastrar Cartão</string>
     <string name="register_card_title_name">Pra começar precisamos do seu nome</string>
     <string name="register_card_title_email">Agora um email para os seus clientes entrarem em contato</string>
@@ -66,6 +66,6 @@
     <string name="register_card_title_telephone">Informe um telefone para entrarem em contato</string>
     <string name="register_card_title_company">Falta pouco, informe o nome da sua empresa</string>
     <string name="register_card_title_network">Informe uma rede social ou um site</string>
-    <string name="register_card_title_color">...e por último escolha a cor do seu cartão</string>
+    <string name="register_card_title_color">…e por último escolha a cor do seu cartão</string>
 
 </resources>

@@ -9,10 +9,11 @@ interface CardListContract {
     interface View: BaseView<Presenter> {
         fun setViews()
         fun displayCards(cardList: MutableList<VirtualCardEntity>)
-        fun displayError(message: String?)
+        fun displayEmpty()
         fun openViewExtended(content: VirtualCardEntity)
         fun displayLoading(isLoading: Boolean)
         fun openRegisterFlow()
+        fun enableRegister(enable: Boolean)
     }
 
     interface Presenter: BasePresenter<View> {

@@ -29,7 +29,7 @@
 
         <TextView
             android:id="@+id/itemCardTitleTv"
-            style="@style/Medium"
+            style="@style/Big"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/vertical_margin"
@@ -40,7 +40,7 @@
 
         <TextView
             android:id="@+id/virtualCardName"
-            style="@style/Small"
+            style="@style/Medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@+id/itemCardTitleTv"
@@ -52,14 +52,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/horizontal_margin"
-            android:layout_marginTop="@dimen/vertical_margin"
+            android:layout_marginTop="@dimen/vertical_margin_large"
             android:src="@drawable/ic_phone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/virtualCardName" />
 
         <TextView
             android:id="@+id/itemCardTelTv"
-            style="@style/Small"
+            style="@style/Medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/horizontal_margin"
@@ -72,14 +72,14 @@
             android:id="@+id/imageView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/horizontal_margin_thin"
+            android:layout_marginTop="@dimen/vertical_margin"
             android:src="@drawable/ic_email"
             app:layout_constraintStart_toStartOf="@+id/imageView"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <TextView
             android:id="@+id/itemCardEmailTv"
-            style="@style/Small"
+            style="@style/Medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/horizontal_margin"
@@ -92,14 +92,14 @@
             android:id="@+id/imageView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/vertical_margin_thin"
+            android:layout_marginTop="@dimen/vertical_margin"
             android:src="@drawable/ic_address"
             app:layout_constraintStart_toStartOf="@+id/imageView3"
             app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
         <TextView
             android:id="@+id/itemCardAddressTv"
-            style="@style/Small"
+            style="@style/Medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/horizontal_margin"
@@ -112,7 +112,7 @@
             android:id="@+id/imageView5"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="@dimen/vertical_margin_thin"
+            android:layout_marginTop="@dimen/vertical_margin"
             android:layout_marginBottom="@dimen/vertical_margin"
             android:src="@drawable/ic_browser"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -121,7 +121,7 @@
 
         <TextView
             android:id="@+id/itemCardSiteTv"
-            style="@style/Small"
+            style="@style/Medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/horizontal_margin"

@@ -55,8 +55,8 @@ class CardListAdapter(private val onCardClicked: OnColorListener): RecyclerView.
                     virtualCardName.text = cardItem.name
                     itemCardTelTv.text = cardItem.tel.addMask(MaskedType.CEL_PHONE)
                     itemCardEmailTv.text = cardItem.email
-                    itemCardAddressTv.text = cardItem.email
-                    itemCardSiteTv.text = cardItem.address
+                    itemCardAddressTv.text = cardItem.address
+                    itemCardSiteTv.text = cardItem.site
                     itemCardExtendIv.setOnClickListener {
                         onColorListener.onCardClicked(cardItem)
                     }

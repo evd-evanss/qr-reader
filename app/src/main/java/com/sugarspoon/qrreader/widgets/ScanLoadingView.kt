@@ -23,11 +23,9 @@ class ScanLoadingView : FrameLayout {
     )
 
     private var job = Job()
-    val handler = CoroutineExceptionHandler { _, exception ->
+    private val handler = CoroutineExceptionHandler { _, exception ->
         println("Caught $exception")
     }
-    // CoroutineScope
-
 
     private var finalUpY = 520.0f
     private var finalDownY = 0.0f
