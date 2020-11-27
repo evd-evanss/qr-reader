@@ -5,9 +5,8 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import com.sugarspoon.qrreader.extensions.setVisible
 import com.sugarspoon.qrreader.utils.ToolbarOptions
+import com.sugarspoon.qrreader.utils.extensions.setVisible
 import kotlinx.android.synthetic.main.layout_toolbar.*
 import kotlinx.android.synthetic.main.layout_toolbar.view.*
 

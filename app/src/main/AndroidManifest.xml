@@ -15,7 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PixReader">
-        <activity android:name="com.sugarspoon.qrreader.ui.main.MainActivity">
+        <activity android:name="com.sugarspoon.qrreader.ui.features.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,11 +26,21 @@
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="fullSensor"
             tools:replace="screenOrientation" />
-        <activity android:name=".ui.features.card.VirtualCardActivity">
+        <activity android:name=".ui.features.card.extend.VirtualCardActivity">
 
         </activity>
-        <activity android:name="com.sugarspoon.qrreader.ui.features.barcode_preview.BarcodePreviewActivity" />
-        <activity android:name="com.sugarspoon.qrreader.ui.features.create_card.CreateCardActivity" />
+        <activity android:name="com.sugarspoon.qrreader.ui.features.barcode.preview.BarcodePreviewActivity" />
+        <activity android:name="com.sugarspoon.qrreader.ui.features.card.create_card.CreateCardActivity" />
+        <!-- FILE PROVIDER -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+        <meta-data
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/files_paths" />
+        </provider>
     </application>
 
 </manifest>

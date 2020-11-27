@@ -6,6 +6,19 @@ plugins {
     id 'kotlin-kapt'
 }
 
+def MAJOR = 1
+def MINOR = 0
+def PATCH = 0
+def HOTFIX = 0
+
+def getVersionName = {
+    return "$MAJOR.$MINOR.$PATCH"
+}
+
+def getVersionCode = {
+    return 10000000 * MAJOR + 100000 * MINOR + 100 * PATCH + HOTFIX
+}
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.1"
@@ -14,9 +27,8 @@ android {
         applicationId "com.sugarspoon.qrreader"
         minSdkVersion 24
         targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
-
+        versionCode getVersionCode()
+        versionName getVersionName()
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -25,7 +37,27 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug {
+            debuggable true
+            applicationIdSuffix ".debug"
+            versionNameSuffix '-DEBUG'
+            buildConfigField "boolean", "REPORT_CRASH", "false"
+        }
     }
+
+    flavorDimensions "environment"
+
+    productFlavors {
+        prod {
+            dimension "environment"
+        }
+        hmg {
+            dimension "environment"
+            versionNameSuffix '-HMG'
+            applicationIdSuffix ".hmg"
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8

@@ -16,7 +16,7 @@ import com.journeyapps.barcodescanner.DefaultDecoderFactory
 import com.sugarspoon.qrreader.R
 import com.sugarspoon.qrreader.base.BaseFragment
 import com.sugarspoon.qrreader.data.ResultQr
-import com.sugarspoon.qrreader.ui.features.barcode_preview.BarcodePreviewActivity
+import com.sugarspoon.qrreader.ui.features.barcode.preview.BarcodePreviewActivity
 import com.sugarspoon.qrreader.utils.PermissionsHelper
 import com.sugarspoon.qrreader.utils.ToolbarOptions
 import kotlinx.android.synthetic.main.fragment_scanner.*

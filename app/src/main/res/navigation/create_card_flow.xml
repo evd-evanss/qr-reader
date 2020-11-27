@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/registerNameFragment"
         tools:layout="@layout/fragment_name"
-        android:name="com.sugarspoon.qrreader.ui.features.create_card.name.RegisterNameFragment"
+        android:name="com.sugarspoon.qrreader.ui.features.card.create_card.name.RegisterNameFragment"
         android:label="RegisterNameFragment" >
         <action
             android:id="@+id/action_registerNameFragment_to_registerEmailFragment"
@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/registerEmailFragment"
         tools:layout="@layout/fragment_email"
-        android:name="com.sugarspoon.qrreader.ui.features.create_card.email.RegisterEmailFragment"
+        android:name="com.sugarspoon.qrreader.ui.features.card.create_card.email.RegisterEmailFragment"
         android:label="RegisterEmailFragment" >
         <action
             android:id="@+id/action_registerEmailFragment_to_registerAddressFragment"
@@ -29,7 +29,7 @@
     <fragment
         android:id="@+id/registerAddressFragment"
         tools:layout="@layout/fragment_address"
-        android:name="com.sugarspoon.qrreader.ui.features.create_card.address.RegisterAddressFragment"
+        android:name="com.sugarspoon.qrreader.ui.features.card.create_card.address.RegisterAddressFragment"
         android:label="RegisterAddressFragment" >
         <action
             android:id="@+id/action_registerAddressFragment_to_registerPhoneFragment"
@@ -41,7 +41,7 @@
     <fragment
         android:id="@+id/registerPhoneFragment"
         tools:layout="@layout/fragment_telephone"
-        android:name="com.sugarspoon.qrreader.ui.features.create_card.phone.RegisterPhoneFragment"
+        android:name="com.sugarspoon.qrreader.ui.features.card.create_card.phone.RegisterPhoneFragment"
         android:label="RegisterPhoneFragment" >
         <action
             android:id="@+id/action_registerPhoneFragment_to_registerCompanyFragment"
@@ -53,7 +53,7 @@
     <fragment
         android:id="@+id/registerCompanyFragment"
         tools:layout="@layout/fragment_company"
-        android:name="com.sugarspoon.qrreader.ui.features.create_card.company.RegisterCompanyFragment"
+        android:name="com.sugarspoon.qrreader.ui.features.card.create_card.company.RegisterCompanyFragment"
         android:label="RegisterCompanyFragment" >
         <action
             android:id="@+id/action_registerCompanyFragment_to_registerNetworkFragment"
@@ -65,7 +65,7 @@
     <fragment
         android:id="@+id/registerNetworkFragment"
         tools:layout="@layout/fragment_network"
-        android:name="com.sugarspoon.qrreader.ui.features.create_card.network.RegisterNetworkFragment"
+        android:name="com.sugarspoon.qrreader.ui.features.card.create_card.network.RegisterNetworkFragment"
         android:label="RegisterNetworkFragment" >
         <action
             android:id="@+id/action_registerNetworkFragment_to_registerColorFragment"
@@ -77,7 +77,7 @@
     <fragment
         android:id="@+id/registerColorFragment"
         tools:layout="@layout/fragment_choose_color"
-        android:name="com.sugarspoon.qrreader.ui.features.create_card.color.RegisterColorFragment"
+        android:name="com.sugarspoon.qrreader.ui.features.card.create_card.color.RegisterColorFragment"
         android:label="RegisterColorFragment">
         <argument
             android:name="card"

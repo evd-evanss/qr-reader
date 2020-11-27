@@ -1,99 +1,89 @@
 package com.sugarspoon.qrreader.utils
 
+import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.graphics.Color
 import android.os.Environment
 import android.view.View
+import android.view.ViewGroup
+import androidx.core.content.FileProvider
+import com.sugarspoon.qrreader.R
 import java.io.*
 
-object Screenshot {
+class Screenshot(
+    val context: Context,
+    val onSuccess: () -> Unit,
+    val onFail: () -> Unit
+) {
 
-    fun takeScreenshot(view: View): Bitmap? {
-        val bitmap = Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
-        val canvas = Canvas(bitmap)
-        view.draw(canvas)
-        storeScreenshot(bitmap, "Meu Cartão Virtual")
-        return bitmap
+    fun takeAndShare(view: ViewGroup) {
+        val bitmap = getBitmapFromView(
+            view,
+            view.measuredHeight,
+            view.measuredWidth
+        )
+        val file = createImageFile()
+        shareImage(file, bitmap)
     }
 
-    fun takeScreenshotFromView(view: View, defaultColor: Int): Bitmap? {
-        val bitmap = Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
-        val canvas = Canvas(bitmap)
-        canvas.drawColor(defaultColor)
-        view.draw(canvas)
-        return bitmap
+    @Throws(IOException::class)
+    fun createImageFile(): File {
+        val directory = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+        return File.createTempFile(
+            FILE_NAME,
+            JPG,
+            directory
+        )
     }
 
-    fun storeScreenshot(bitmap: Bitmap, filename: String) {
-        val path: String =
-            Environment.getExternalStorageDirectory().toString().toString() + "/" + filename
-        var out: OutputStream? = null
-        val imageFile = File(path)
+    fun getBitmapFromView(view: View, totalHeight: Int, totalWidth: Int): Bitmap {
+        val returnedBitmap = Bitmap.createBitmap(
+            totalWidth,
+            totalHeight,
+            Bitmap.Config.ARGB_8888
+        )
+        val canvas = Canvas(returnedBitmap)
+        val bgDrawable = view.background
+        if (bgDrawable != null)
+            bgDrawable.draw(canvas)
+        else
+            canvas.drawColor(Color.WHITE)
+        view.draw(canvas)
+        return returnedBitmap
+    }
+
+    private fun shareImage(file: File, bitmap: Bitmap) {
         try {
-            out = FileOutputStream(imageFile)
-            // choose JPEG format
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 90, out)
-            out.flush()
-        } catch (e: FileNotFoundException) {
-            // manage exception ...
-        } catch (e: IOException) {
-            // manage exception ...
-        } finally {
-            try {
-                out?.close()
-            } catch (exc: Exception) {
-            }
+            val fileOutputStream = FileOutputStream(file)
+            bitmap.compress(Bitmap.CompressFormat.JPEG, BITMAP_QUALITY, fileOutputStream)
+            fileOutputStream.close()
+            val share = Intent(Intent.ACTION_SEND)
+            share.type = FILE_TYPE
+            val photoURI = FileProvider.getUriForFile(
+                context,
+                Constants.AUTHORITY,
+                file
+            )
+            share.putExtra(Intent.EXTRA_STREAM, photoURI)
+            context.startActivity(
+                Intent.createChooser(
+                    share,
+                    context.getString(R.string.action_share_via)
+                )
+            )
+            onSuccess()
+        } catch (e: Exception) {
+            print(e.message)
+            onFail()
         }
     }
-//
-//    private fun saveImage(bitmap: Bitmap, context: Context, folderName: String) {
-//        if (android.os.Build.VERSION.SDK_INT >= 29) {
-//            val values = contentValues()
-//            values.put(MediaStore.Images.Media.RELATIVE_PATH, "Pictures/" + folderName)
-//            values.put(MediaStore.Images.Media.IS_PENDING, true)
-//            // RELATIVE_PATH and IS_PENDING are introduced in API 29.
-//
-//            val uri: Uri? = context.contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values)
-//            if (uri != null) {
-//                saveImageToStream(bitmap, context.contentResolver.openOutputStream(uri))
-//                values.put(MediaStore.Images.Media.IS_PENDING, false)
-//                context.contentResolver.update(uri, values, null, null)
-//            }
-//        } else {
-//            val directory = File(Environment.getExternalStorageDirectory().toString() + separator + folderName)
-//            // getExternalStorageDirectory is deprecated in API 29
-//
-//            if (!directory.exists()) {
-//                directory.mkdirs()
-//            }
-//            val fileName = System.currentTimeMillis().toString() + ".png"
-//            val file = File(directory, fileName)
-//            saveImageToStream(bitmap, OutputStream(file))
-//            if (file.absolutePath != null) {
-//                val values = contentValues()
-//                values.put(MediaStore.Images.Media.DATA, file.absolutePath)
-//                // .DATA is deprecated in API 29
-//                context.contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values)
-//            }
-//        }
-//    }
-//
-//    private fun contentValues() : ContentValues {
-//        val values = ContentValues()
-//        values.put(MediaStore.Images.Media.MIME_TYPE, "image/png")
-//        values.put(MediaStore.Images.Media.DATE_ADDED, System.currentTimeMillis() / 1000);
-//        values.put(MediaStore.Images.Media.DATE_TAKEN, System.currentTimeMillis());
-//        return values
-//    }
-//
-//    private fun saveImageToStream(bitmap: Bitmap, outputStream: OutputStream?) {
-//        if (outputStream != null) {
-//            try {
-//                bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream)
-//                outputStream.close()
-//            } catch (e: Exception) {
-//                e.printStackTrace()
-//            }
-//        }
-//    }
+
+    companion object {
+        private const val FILE_NAME = "Meu Cartão Virtual"
+        private const val FILE_TYPE = "image/*"
+        private const val BITMAP_QUALITY = 100
+        private const val JPG = ".jpg"
+    }
 }

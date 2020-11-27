@@ -3,7 +3,7 @@
 
     <!-- LOADING-->
     <string name="validate_generic_loading_title">Aguarde!</string>
-    <string name="validate_virtual_card_loading_body">Estamos criando seu Cartão Virtual</string>
+    <string name="validate_virtual_card_loading_body">Estamos carregando seu Cartão Virtual</string>
     <string name="validate_agency_account_loading_body">Estamos validando a informação.</string>
     <string name="loading_my_cards_body">Estamos carregando seus cartões.</string>
     <string name="reader_title_name">Nome:</string>

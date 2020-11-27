@@ -35,7 +35,7 @@
     <dimen name="text_body">14sp</dimen>
     <dimen name="text_small">12sp</dimen>
     <dimen name="round_focus">15dp</dimen>
-    <dimen name="qr_code_size">250dp</dimen>
+    <dimen name="qr_code_size">200dp</dimen>
     <dimen name="qr_code_small_size">100dp</dimen>
     <dimen name="buttonSize">60dp</dimen>
     <dimen name="buttonSizeSmall">40dp</dimen>

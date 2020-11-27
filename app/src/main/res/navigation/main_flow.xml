@@ -23,20 +23,20 @@
     <fragment
         android:id="@+id/createFragment"
         tools:layout="@layout/fragment_create"
-        android:name="com.sugarspoon.qrreader.ui.features.create_card.CreateCardFragment"
+        android:name="com.sugarspoon.qrreader.ui.features.card.create_card.CreateCardFragment"
         android:label="CreateFragment" >
 
     </fragment>
     <fragment
         android:id="@+id/listFragment"
         tools:layout="@layout/fragment_my_cards"
-        android:name="com.sugarspoon.qrreader.ui.features.card_list.CardListFragment"
+        android:name="com.sugarspoon.qrreader.ui.features.card.card_list.CardFragment"
         android:label="ListFragment" >
     </fragment>
     <fragment
         android:id="@+id/barcodeListFragment"
         tools:layout="@layout/fragment_barcode_list"
-        android:name="com.sugarspoon.qrreader.ui.features.barcode_list.BarcodeListFragment"
+        android:name="com.sugarspoon.qrreader.ui.features.barcode.list.BarcodeListFragment"
         android:label="BarcodeListFragment" />
 
 </navigation>

@@ -29,6 +29,14 @@ fun ImageView.setQrCodeByString(
     }
 }
 
+fun View.setVisible(visible: Boolean, useInvisible: Boolean = false) {
+    visibility = when {
+        visible -> View.VISIBLE
+        useInvisible -> View.INVISIBLE
+        else -> View.GONE
+    }
+}
+
 fun EditText.afterTextChanged(onTextChanged: ((String) -> Unit)) {
     addTextChangedListener(object : TextWatcher {
         override fun afterTextChanged(s: Editable?) {

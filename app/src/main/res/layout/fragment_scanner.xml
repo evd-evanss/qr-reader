@@ -38,7 +38,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
-        <com.sugarspoon.qrreader.widgets.ScanLoadingView
+        <com.sugarspoon.qrreader.ui.widgets.ScanLoadingView
             android:id="@+id/scannerLoadingPb"
             android:layout_width="0dp"
             android:layout_height="0dp"
